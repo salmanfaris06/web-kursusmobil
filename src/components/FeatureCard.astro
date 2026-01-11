@@ -1,0 +1,33 @@
+---
+import type { Feature } from '../data/features';
+
+interface Props {
+  feature: Feature;
+  index?: number;
+}
+
+const { feature, index = 0 } = Astro.props;
+---
+
+<div class="group flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-card-dark p-8 shadow-sm card-hover hover:border-primary/30 dark:hover:border-primary/50 transition-all duration-300 h-full">
+  <!-- Icon with Animation -->
+  <div class={`size-14 rounded-2xl ${feature.bgColor} flex items-center justify-center ${feature.iconColor} transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
+    <span class="material-symbols-outlined text-3xl">{feature.icon}</span>
+  </div>
+  
+  <!-- Content -->
+  <div class="flex flex-col gap-2">
+    <h3 class="text-text-primary dark:text-white text-xl font-bold group-hover:text-primary transition-colors duration-300">
+      {feature.title}
+    </h3>
+    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+      {feature.description}
+    </p>
+  </div>
+  
+  <!-- Decorative Arrow (appears on hover) -->
+  <div class="mt-auto pt-4 flex items-center gap-2 text-primary opacity-0 transform translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+    <span class="text-sm font-semibold">Pelajari lebih lanjut</span>
+    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+  </div>
+</div>

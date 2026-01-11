@@ -1,0 +1,123 @@
+---
+import TestimonialCard from './TestimonialCard.astro';
+import { testimonials } from '../data/testimonials';
+---
+
+<section id="testimoni" class="py-16 md:py-24 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+  <div class="px-4 md:px-10 lg:px-40 max-w-[1440px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+      <div class="flex flex-col gap-2 scroll-animate-testimonial" data-animation="slide-in-left">
+        <h2 class="text-text-primary dark:text-white text-3xl font-bold">Kata Alumni Kami</h2>
+        <p class="text-gray-500 dark:text-gray-400">Pengalaman nyata dari siswa yang sudah berhasil mendapatkan SIM.</p>
+      </div>
+      <div class="hidden md:flex gap-2 scroll-animate-testimonial" data-animation="slide-in-right">
+        <button 
+          id="testimonial-prev"
+          class="size-10 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 text-text-primary dark:text-white hover:scale-110 active:scale-95"
+          aria-label="Previous testimonial"
+        >
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <button 
+          id="testimonial-next"
+          class="size-10 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm text-text-primary dark:text-white hover:scale-110 active:scale-95"
+          aria-label="Next testimonial"
+        >
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="testimonial-grid">
+      {testimonials.map((testimonial, index) => (
+        <div 
+          class="scroll-animate-testimonial" 
+          data-animation="fade-in-up" 
+          data-delay={index * 200}
+        >
+          <TestimonialCard testimonial={testimonial} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for testimonial scroll animations
+  function initTestimonialAnimations() {
+    const animatedElements = document.querySelectorAll('.scroll-animate-testimonial');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const animation = el.dataset.animation || 'fade-in-up';
+          const delay = parseInt(el.dataset.delay || '0');
+          
+          setTimeout(() => {
+            el.classList.add('is-visible');
+            el.classList.add(`animate-${animation}`);
+          }, delay);
+          
+          observer.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  }
+  
+  // Simple carousel-like effect for navigation buttons
+  function initTestimonialNav() {
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+    const grid = document.getElementById('testimonial-grid');
+    
+    if (!prevBtn || !nextBtn || !grid) return;
+    
+    let currentOffset = 0;
+    const cards = grid.querySelectorAll(':scope > div');
+    
+    // Add subtle animation on button click
+    prevBtn.addEventListener('click', () => {
+      cards.forEach((card, index) => {
+        const htmlCard = card as HTMLElement;
+        htmlCard.style.transform = 'translateX(10px)';
+        htmlCard.style.opacity = '0.5';
+        setTimeout(() => {
+          htmlCard.style.transform = 'translateX(0)';
+          htmlCard.style.opacity = '1';
+        }, 150 + (index * 50));
+      });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      cards.forEach((card, index) => {
+        const htmlCard = card as HTMLElement;
+        htmlCard.style.transform = 'translateX(-10px)';
+        htmlCard.style.opacity = '0.5';
+        setTimeout(() => {
+          htmlCard.style.transform = 'translateX(0)';
+          htmlCard.style.opacity = '1';
+        }, 150 + (index * 50));
+      });
+    });
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initTestimonialAnimations();
+      initTestimonialNav();
+    });
+  } else {
+    initTestimonialAnimations();
+    initTestimonialNav();
+  }
+</script>

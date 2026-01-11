@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = `${siteConfig.name} - Kursus Mengemudi Jambi`,
+  description = 'Kursus mengemudi terpercaya di Jambi. Instruktur berpengalaman 10+ tahun, antar-jemput gratis, jaminan lulus SIM. Daftar sekarang!'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="kursus mengemudi jambi, les mobil jambi, belajar nyetir jambi, SIM jambi, kursus mobil manual, kursus mobil matic" />
+    <meta name="color-scheme" content="light dark" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <title>{title}</title>
+    
+    <!-- Dark mode initialization (prevents flash) -->
+    <script is:inline>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark text-text-primary dark:text-white font-display overflow-x-hidden antialiased flex flex-col min-h-screen transition-colors duration-300">
+    <slot />
+  </body>
+</html>
