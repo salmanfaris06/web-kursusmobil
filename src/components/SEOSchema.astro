@@ -1,0 +1,206 @@
+---
+/**
+ * SEOSchema - LocalBusiness JSON-LD structured data for NASYA
+ * Improves SEO and enables rich snippets in Google search results
+ */
+
+interface Props {
+  name?: string;
+  description?: string;
+}
+
+const {
+  name = 'Kursus Mengemudi NASYA Jambi',
+  description = 'Kursus mengemudi terpercaya di Jambi. Instruktur berpengalaman 10+ tahun, jaminan lulus SIM, layanan antar-jemput. Tersedia paket manual & matic.'
+} = Astro.props;
+
+// Structured data for LocalBusiness
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": "https://nasyajambi.com/#organization",
+  "name": "NASYA - Kursus Mengemudi Jambi",
+  "alternateName": "NASYA Jambi",
+  "description": description,
+  "url": "https://nasyajambi.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://nasyajambi.com/favicon.svg"
+  },
+  "image": [
+    "https://nasyajambi.com/og-image.jpg"
+  ],
+  "telephone": "+62-812-3456-7890",
+  "email": "info@nasyajambi.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Jl. Pangeran Hidayat No. 45",
+    "addressLocality": "Kota Baru",
+    "addressRegion": "Jambi",
+    "postalCode": "36129",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -1.6101,
+    "longitude": 103.6131
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "Rp 750.000 - Rp 1.600.000",
+  "currenciesAccepted": "IDR",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "areaServed": {
+    "@type": "City",
+    "name": "Jambi",
+    "containedInPlace": {
+      "@type": "Country",
+      "name": "Indonesia"
+    }
+  },
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": -1.6101,
+      "longitude": 103.6131
+    },
+    "geoRadius": "25000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Paket Kursus Mengemudi",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Paket Basic Manual",
+          "description": "5x pertemuan kursus mengemudi mobil manual untuk pemula"
+        },
+        "price": "750000",
+        "priceCurrency": "IDR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Paket Reguler",
+          "description": "10x pertemuan kursus mengemudi dengan latihan parkir dan jalan raya"
+        },
+        "price": "1100000",
+        "priceCurrency": "IDR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Paket Intensif",
+          "description": "15x pertemuan intensif dengan simulasi ujian SIM dan pendampingan"
+        },
+        "price": "1350000",
+        "priceCurrency": "IDR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Paket Premium",
+          "description": "20x pertemuan lengkap dengan jaminan lulus SIM dan layanan antar-jemput"
+        },
+        "price": "1600000",
+        "priceCurrency": "IDR"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "500",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://facebook.com/nasyajambi",
+    "https://instagram.com/nasyajambi",
+    "https://tiktok.com/@nasyajambi"
+  ]
+};
+
+// BreadcrumbList for homepage
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Beranda",
+      "item": "https://nasyajambi.com"
+    }
+  ]
+};
+
+// FAQ Schema (will help with rich snippets)
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Berapa biaya kursus mengemudi di NASYA Jambi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Biaya kursus mengemudi di NASYA mulai dari Rp 750.000 untuk paket basic (5x pertemuan) hingga Rp 1.600.000 untuk paket premium (20x pertemuan dengan jaminan lulus SIM dan layanan antar-jemput)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah NASYA menyediakan layanan antar-jemput?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, NASYA menyediakan layanan antar-jemput gratis untuk siswa kursus di area Jambi. Instruktur akan menjemput Anda di lokasi yang disepakati."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Berapa lama waktu yang dibutuhkan untuk bisa mengemudi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rata-rata siswa kami dapat mengemudi dengan percaya diri dalam 10-15 sesi latihan (sekitar 2-3 minggu). Namun ini tergantung pada kemampuan awal dan intensitas latihan masing-masing siswa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah tersedia kursus untuk mobil matic dan manual?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ya, NASYA menyediakan kursus untuk kedua jenis transmisi. Kami memiliki armada mobil manual dan matic yang terawat dengan baik untuk proses belajar Anda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apakah ada jaminan lulus ujian SIM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Untuk paket Premium (20x pertemuan), kami memberikan jaminan lulus ujian SIM. Jika tidak lulus pada percobaan pertama, kami akan memberikan sesi latihan tambahan secara gratis."
+      }
+    }
+  ]
+};
+---
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

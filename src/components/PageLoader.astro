@@ -1,0 +1,84 @@
+---
+/**
+ * PageLoader - Initial page loading animation
+ * Shows a branded loading screen while page assets load
+ */
+---
+
+<!-- Page Loader Overlay -->
+<div id="page-loader" class="fixed inset-0 z-[100] bg-background-light flex items-center justify-center transition-opacity duration-500">
+  <div class="flex flex-col items-center gap-4">
+    <!-- Animated Logo -->
+    <div class="relative">
+      <!-- Steering wheel icon -->
+      <svg class="size-16 text-primary animate-spin-slow" viewBox="0 0 64 64" fill="none">
+        <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="4"/>
+        <circle cx="32" cy="32" r="6" fill="currentColor"/>
+        <line x1="32" y1="8" x2="32" y2="26" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="52.8" y1="20" x2="37" y2="29" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="52.8" y1="44" x2="37" y2="35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="32" y1="56" x2="32" y2="38" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="11.2" y1="44" x2="27" y2="35" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <line x1="11.2" y1="20" x2="27" y2="29" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    
+    <!-- Brand Name -->
+    <div class="flex items-center gap-2">
+      <span class="text-2xl font-bold text-text-primary">NASYA</span>
+      <span class="text-sm text-text-secondary">Jambi</span>
+    </div>
+    
+    <!-- Loading dots -->
+    <div class="flex gap-1.5">
+      <span class="size-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0ms;"></span>
+      <span class="size-2 bg-primary rounded-full animate-bounce" style="animation-delay: 150ms;"></span>
+      <span class="size-2 bg-primary rounded-full animate-bounce" style="animation-delay: 300ms;"></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+  
+  #page-loader.loaded {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // Hide loader when page is fully loaded
+  const loader = document.getElementById('page-loader');
+  
+  function hideLoader() {
+    if (loader) {
+      loader.classList.add('loaded');
+      // Remove from DOM after animation
+      setTimeout(() => {
+        loader.remove();
+      }, 500);
+    }
+  }
+  
+  // Check if page is already loaded
+  if (document.readyState === 'complete') {
+    // Add small delay for smoother UX
+    setTimeout(hideLoader, 300);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(hideLoader, 300);
+    });
+  }
+</script>

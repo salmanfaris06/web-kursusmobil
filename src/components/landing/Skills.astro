@@ -1,0 +1,68 @@
+---
+const skills = [
+  {
+    icon: "local_parking",
+    title: "Parkir dan Manuver",
+    description: "Kuasai teknik parkir paralel dan mundur dengan presisi dan percaya diri"
+  },
+  {
+    icon: "directions_car",
+    title: "Mengemudi di Kota & Jalan Raya",
+    description: "Tingkatkan kontrol dan kesadaran berkendara di berbagai kondisi jalan"
+  },
+  {
+    icon: "health_and_safety",
+    title: "Penanganan Darurat",
+    description: "Reaksi tenang dan tetap terkendali saat menghadapi situasi tak terduga"
+  },
+  {
+    icon: "turn_right",
+    title: "Pindah Jalur & Berbelok",
+    description: "Kuasai pengecekan spion, lampu sein, dan teknik berbelok dengan mulus"
+  },
+  {
+    icon: "speed",
+    title: "Kontrol Kecepatan & Jarak",
+    description: "Jaga kecepatan stabil dan jarak aman dalam setiap situasi berkendara"
+  },
+  {
+    icon: "pause_circle",
+    title: "Start & Stop Halus",
+    description: "Seimbangkan akselerasi dan pengereman untuk kontrol yang mulus"
+  }
+];
+---
+
+<section class="py-16 sm:py-20 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 sm:mb-16 reveal">
+      <span class="section-label">Keunggulan Kami</span>
+      <h2 class="mt-3 section-title">
+        Skill yang Akan<br /><span class="text-primary">Anda Kuasai</span>
+      </h2>
+      <p class="mt-4 section-subtitle mx-auto">
+        Pelajaran kami membangun skill nyata untuk menjadikan Anda pengemudi yang percaya diri dan aman di jalan raya
+      </p>
+    </div>
+    
+    <!-- Skills Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {skills.map((skill, index) => (
+        <div class={`card group reveal stagger-${index + 1}`}>
+          <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+            <span class="material-symbols-outlined text-primary group-hover:text-white text-2xl">
+              {skill.icon}
+            </span>
+          </div>
+          <h3 class="text-xl font-semibold text-text-primary mb-2">
+            {skill.title}
+          </h3>
+          <p class="text-text-secondary">
+            {skill.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

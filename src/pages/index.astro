@@ -1,23 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import Packages from '../components/Packages.astro';
-import Testimonials from '../components/Testimonials.astro';
-import Location from '../components/Location.astro';
-import Footer from '../components/Footer.astro';
-import WhatsAppFAB from '../components/WhatsAppFAB.astro';
+import Header from '../components/landing/Header.astro';
+import Hero from '../components/landing/Hero.astro';
+import Skills from '../components/landing/Skills.astro';
+import Program from '../components/landing/Program.astro';
+import Stages from '../components/landing/Stages.astro';
+import Team from '../components/landing/Team.astro';
+import Stats from '../components/landing/Stats.astro';
+import Fleet from '../components/landing/Fleet.astro';
+import Pricing from '../components/landing/Pricing.astro';
+import Reviews from '../components/landing/Reviews.astro';
+import CTA from '../components/landing/CTA.astro';
+import Location from '../components/landing/Location.astro';
+import FAQ from '../components/landing/FAQ.astro';
+import Footer from '../components/landing/Footer.astro';
+import WhatsAppFAB from '../components/landing/WhatsAppFAB.astro';
 ---
 
 <Layout>
   <Header />
-  <main class="flex-grow">
+  <main>
     <Hero />
-    <Features />
-    <Packages />
-    <Testimonials />
+    <div id="skills">
+      <Skills />
+    </div>
+    <div id="program">
+      <Program />
+    </div>
+    <Stages />
+    <div id="team">
+      <Team />
+    </div>
+    <Stats />
+    <Fleet />
+    <Pricing />
+    <Reviews />
+    <CTA />
     <Location />
+    <div id="faq">
+      <FAQ />
+    </div>
   </main>
   <Footer />
   <WhatsAppFAB />

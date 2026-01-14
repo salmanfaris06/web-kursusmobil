@@ -1,0 +1,109 @@
+---
+const navLinks = [
+  { label: "Keunggulan", href: "#skills" },
+  { label: "Program", href: "#program" },
+  { label: "Instruktur", href: "#team" },
+  { label: "Harga", href: "#pricing" },
+  { label: "FAQ", href: "#faq" }
+];
+
+const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20bertanya%20tentang%20kursus%20mengemudi";
+---
+
+<!-- Floating Navbar with proper spacing from edges -->
+<header class="fixed top-4 left-4 right-4 z-40 animate-slide-down">
+  <div class="max-w-7xl mx-auto">
+    <nav class="bg-white/90 backdrop-blur-xl rounded-2xl shadow-lg shadow-black/5 border border-white/20 px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-18">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 cursor-pointer group">
+          <div class="size-10 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+            <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold text-text-primary">NASYA</span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-1">
+          {navLinks.map((link) => (
+            <a 
+              href={link.href}
+              class="px-4 py-2 text-text-secondary hover:text-primary hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium cursor-pointer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        
+        <!-- CTA Button -->
+        <div class="flex items-center gap-3">
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="hidden sm:flex btn-primary cursor-pointer">
+            <span>Daftar Sekarang</span>
+            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          
+          <!-- Mobile Menu Button -->
+          <button 
+            id="mobile-menu-btn" 
+            class="lg:hidden size-10 flex items-center justify-center rounded-xl bg-gray-100 hover:bg-gray-200 transition-colors duration-200 cursor-pointer"
+            aria-label="Toggle menu"
+          >
+            <svg class="size-6 text-text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 overflow-hidden">
+      <nav class="p-4 space-y-1">
+        {navLinks.map((link) => (
+          <a 
+            href={link.href}
+            class="block text-text-secondary hover:text-primary hover:bg-primary/5 transition-all duration-200 font-medium py-3 px-4 rounded-xl cursor-pointer"
+          >
+            {link.label}
+          </a>
+        ))}
+        <div class="pt-3 border-t border-gray-100 mt-3">
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center cursor-pointer">
+            <span>Daftar Sekarang</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    // Toggle hamburger icon
+    const icon = menuBtn.querySelector('svg');
+    if (mobileMenu?.classList.contains('hidden')) {
+      icon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+    } else {
+      icon!.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+    }
+  });
+  
+  // Close menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      const icon = menuBtn?.querySelector('svg');
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+      }
+    });
+  });
+</script>

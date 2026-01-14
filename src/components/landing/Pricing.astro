@@ -1,0 +1,137 @@
+---
+const plans = [
+  {
+    name: "Paket Manual - Basic",
+    price: "Rp 750.000",
+    period: "4x pertemuan",
+    popular: false,
+    transmission: "manual",
+    features: [
+      "4x pertemuan latihan mengemudi",
+      "Durasi 1,5 jam per pertemuan",
+      "Instruktur berpengalaman",
+      "Mobil manual berkondisi baik",
+      "Layanan antar-jemput"
+    ]
+  },
+  {
+    name: "Paket Manual - Pro",
+    price: "Rp 1.400.000",
+    period: "8x pertemuan",
+    popular: true,
+    transmission: "manual",
+    features: [
+      "8x pertemuan latihan mengemudi",
+      "Durasi 1,5 jam per pertemuan",
+      "Instruktur senior berpengalaman",
+      "Mobil manual berkondisi baik",
+      "Layanan antar-jemput",
+      "Jaminan lulus SIM",
+      "Latihan di jalan raya"
+    ]
+  },
+  {
+    name: "Paket Matic - Basic",
+    price: "Rp 850.000",
+    period: "4x pertemuan",
+    popular: false,
+    transmission: "matic",
+    features: [
+      "4x pertemuan latihan mengemudi",
+      "Durasi 1,5 jam per pertemuan",
+      "Instruktur berpengalaman",
+      "Mobil matic berkondisi baik",
+      "Layanan antar-jemput"
+    ]
+  },
+  {
+    name: "Paket Matic - Pro",
+    price: "Rp 1.600.000",
+    period: "8x pertemuan",
+    popular: true,
+    transmission: "matic",
+    features: [
+      "8x pertemuan latihan mengemudi",
+      "Durasi 1,5 jam per pertemuan",
+      "Instruktur senior berpengalaman",
+      "Mobil matic berkondisi baik",
+      "Layanan antar-jemput",
+      "Jaminan lulus SIM",
+      "Latihan di jalan raya"
+    ]
+  }
+];
+
+const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20";
+---
+
+<section id="pricing" class="py-16 sm:py-20 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 sm:mb-16 reveal">
+      <span class="section-label">Harga Paket</span>
+      <h2 class="mt-3 section-title">
+        Pilih Paket<br /><span class="text-primary">Kursus Anda</span>
+      </h2>
+      <p class="mt-4 section-subtitle mx-auto">
+        Tersedia paket manual dan matic sesuai kebutuhan. Semua paket termasuk layanan antar-jemput gratis
+      </p>
+    </div>
+    
+    <!-- Pricing Cards - Improved responsive grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+      {plans.map((plan, index) => (
+        <div class={`relative bg-white rounded-2xl sm:rounded-[32px] p-5 sm:p-6 border-2 transition-all duration-300 hover:-translate-y-2 cursor-pointer reveal stagger-${index + 1} ${plan.popular ? 'border-primary shadow-xl ring-1 ring-primary/20' : 'border-border-light hover:border-primary/30 hover:shadow-lg'}`}>
+          {plan.popular && (
+            <div class="absolute -top-3 sm:-top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+              Rekomendasi
+            </div>
+          )}
+          
+          <div class={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 sm:mb-4 ${plan.transmission === 'manual' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
+            {plan.transmission === 'manual' ? 'Manual' : 'Matic'}
+          </div>
+          
+          <h3 class="text-base sm:text-lg font-bold text-text-primary mb-2">
+            {plan.name}
+          </h3>
+          
+          <div class="mb-1">
+            <span class="text-xl sm:text-2xl font-bold text-text-primary">{plan.price}</span>
+          </div>
+          <p class="text-sm text-text-secondary mb-4 sm:mb-6">{plan.period}</p>
+          
+          <ul class="space-y-2 sm:space-y-3 mb-5 sm:mb-6">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-2">
+                <div class="size-5 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="size-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-xs sm:text-sm text-text-secondary">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <a 
+            href={`${whatsappLink}${encodeURIComponent(plan.name)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={`w-full justify-center text-sm sm:text-base ${plan.popular ? 'btn-primary' : 'btn-secondary'}`}
+          >
+            <span>Daftar Sekarang</span>
+            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Note -->
+    <p class="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-text-secondary reveal">
+      * Harga sudah termasuk bensin, mobil, dan instruktur. Hubungi kami untuk info lebih lanjut.
+    </p>
+  </div>
+</section>

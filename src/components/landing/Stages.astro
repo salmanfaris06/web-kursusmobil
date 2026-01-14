@@ -1,0 +1,69 @@
+---
+const stages = [
+  {
+    number: "01",
+    title: "Hubungi via WhatsApp",
+    description: "Chat kami untuk konsultasi gratis dan pilih paket yang sesuai dengan kebutuhan Anda"
+  },
+  {
+    number: "02",
+    title: "Pilih Paket Kursus",
+    description: "Pilih paket Manual atau Matic, Basic (4x) atau Pro (8x) sesuai tingkat kemampuan Anda"
+  },
+  {
+    number: "03",
+    title: "Mulai Latihan",
+    description: "Instruktur akan menjemput Anda di lokasi yang disepakati. Mulai belajar dengan nyaman!"
+  },
+  {
+    number: "04",
+    title: "Praktik di Jalan",
+    description: "Latihan bertahap dari area aman hingga jalan raya dengan bimbingan instruktur berpengalaman"
+  },
+  {
+    number: "05",
+    title: "Dapat SIM!",
+    description: "Setelah mahir, Anda siap ujian SIM. Paket Pro termasuk jaminan lulus!"
+  }
+];
+---
+
+<section class="py-16 sm:py-20 lg:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 sm:mb-16 reveal">
+      <span class="section-label">Cara Daftar</span>
+      <h2 class="mt-3 section-title">
+        Proses<br /><span class="text-primary">Pendaftaran</span>
+      </h2>
+      <p class="mt-4 section-subtitle mx-auto">
+        Dari pendaftaran hingga dapat SIM, kami dampingi setiap langkah Anda dengan dukungan penuh
+      </p>
+    </div>
+    
+    <!-- Stages Timeline -->
+    <div class="relative max-w-3xl mx-auto">
+      <!-- Vertical Line -->
+      <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-border-light md:-translate-x-1/2"></div>
+      
+      {stages.map((stage, index) => (
+        <div class={`relative flex items-start gap-8 mb-12 last:mb-0 reveal stagger-${index + 1} ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+          <!-- Number Circle -->
+          <div class="relative z-10 flex-shrink-0 size-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg md:absolute md:left-1/2 md:-translate-x-1/2">
+            {stage.number}
+          </div>
+          
+          <!-- Content Card -->
+          <div class={`flex-1 bg-accent-cream/30 rounded-2xl p-6 ${index % 2 === 0 ? 'md:mr-auto md:pr-24' : 'md:ml-auto md:pl-24'} md:w-[calc(50%-40px)]`}>
+            <h3 class="text-xl font-bold text-text-primary mb-2">
+              {stage.title}
+            </h3>
+            <p class="text-text-secondary">
+              {stage.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

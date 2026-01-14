@@ -1,0 +1,67 @@
+---
+const stats = [
+  { value: "500+", label: "Siswa Lulus" },
+  { value: "10+", label: "Tahun Pengalaman" },
+  { value: "98%", label: "Tingkat Kelulusan" },
+  { value: "4.9", label: "Rating Google" }
+];
+
+const galleryImages = [
+  "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1493238792000-8113da705763?w=600&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&h=400&fit=crop"
+];
+---
+
+<section class="py-16 sm:py-20 lg:py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 sm:mb-16 reveal">
+      <span class="section-label">Terpercaya di Jambi</span>
+      <h2 class="mt-3 section-title">
+        Kursus Mengemudi<br /><span class="text-primary">NASYA Jambi</span>
+      </h2>
+      <p class="mt-4 section-subtitle mx-auto">
+        NASYA hadir untuk membantu Anda belajar mengemudi dengan aman, cepat, dan nyaman. Dengan instruktur berpengalaman dan metode yang terstruktur
+      </p>
+    </div>
+    
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {stats.map((stat, index) => (
+        <div class={`bg-accent-cream/50 rounded-2xl p-6 text-center reveal-scale stagger-${index + 1}`}>
+          <div class="text-4xl md:text-5xl font-bold text-primary mb-2">
+            {stat.value}
+          </div>
+          <div class="text-text-secondary">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Image Carousel -->
+    <div class="relative -mx-4 sm:-mx-6 lg:-mx-8 reveal">
+      <div class="overflow-hidden">
+        <div class="carousel-track flex gap-6 w-max">
+          {[...galleryImages, ...galleryImages].map((img, index) => (
+            <div class="w-[400px] flex-shrink-0">
+              <div class="aspect-[3/2] rounded-2xl overflow-hidden">
+                <img 
+                  src={img}
+                  alt={`Gallery image ${(index % galleryImages.length) + 1}`}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Gradient Overlays -->
+      <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+    </div>
+  </div>
+</section>

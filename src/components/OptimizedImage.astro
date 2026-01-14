@@ -1,0 +1,95 @@
+---
+/**
+ * OptimizedImage - Lazy loading image component with blur-up effect
+ * Improves Core Web Vitals (LCP, CLS) by lazy loading images and showing placeholders
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  aspectRatio?: string;
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none';
+}
+
+const { 
+  src, 
+  alt, 
+  class: className = '',
+  width,
+  height,
+  loading = 'lazy',
+  aspectRatio = '16/9',
+  objectFit = 'cover'
+} = Astro.props;
+
+// Generate a simple gray placeholder
+const placeholderColor = '#f3f4f6';
+---
+
+<div 
+  class:list={['optimized-image-wrapper relative overflow-hidden bg-gray-100', className]}
+  style={`aspect-ratio: ${aspectRatio};`}
+>
+  <!-- Placeholder shimmer -->
+  <div class="absolute inset-0 shimmer-placeholder" aria-hidden="true"></div>
+  
+  <!-- Actual image -->
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    class:list={[
+      'optimized-image w-full h-full transition-opacity duration-500',
+      `object-${objectFit}`
+    ]}
+    style="opacity: 0;"
+    onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';"
+  />
+</div>
+
+<style>
+  .shimmer-placeholder {
+    background: linear-gradient(
+      90deg,
+      #f0f0f0 0%,
+      #e0e0e0 50%,
+      #f0f0f0 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  /* Fallback for JS disabled */
+  noscript + .optimized-image-wrapper .optimized-image {
+    opacity: 1 !important;
+  }
+  
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-placeholder {
+      animation: none;
+      background: #f0f0f0;
+    }
+    
+    .optimized-image {
+      transition: none;
+      opacity: 1 !important;
+    }
+  }
+</style>

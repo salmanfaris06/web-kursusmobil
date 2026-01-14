@@ -1,0 +1,139 @@
+---
+const avatars = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+];
+
+const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
+---
+
+<!-- Hero Section - adjusted padding for floating navbar -->
+<section class="relative pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden">
+  <!-- Background gradient decoration -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto">
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight animate-fade-in-up">
+        Kursus Mengemudi<br />
+        <span class="text-primary">NASYA</span> Jambi
+      </h1>
+      
+      <!-- Subtitle -->
+      <p class="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto animate-fade-in-up delay-100" style="opacity: 0;">
+        Belajar mengemudi dengan instruktur berpengalaman 10+ tahun. Dapatkan SIM dengan cepat, aman, dan terpercaya.
+      </p>
+      
+      <!-- USP Badges -->
+      <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4 animate-fade-in-up delay-200" style="opacity: 0;">
+        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+          <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          <span>Antar-Jemput Gratis</span>
+        </div>
+        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+          <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Jaminan Lulus SIM</span>
+        </div>
+        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+          <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Instruktur 10+ Tahun</span>
+        </div>
+      </div>
+      
+      <!-- Social Proof -->
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-in-up delay-300" style="opacity: 0;">
+        <!-- Avatar Stack -->
+        <div class="flex items-center gap-3 sm:gap-4">
+          <div class="avatar-stack flex">
+            {avatars.map((avatar, i) => (
+              <img 
+                src={avatar} 
+                alt={`Siswa ${i + 1}`}
+                class="size-9 sm:size-10 rounded-full border-2 border-white object-cover shadow-md"
+                style={`margin-left: ${i === 0 ? '0' : '-10px'}; z-index: ${5 - i};`}
+              />
+            ))}
+          </div>
+          
+          <!-- Rating -->
+          <div class="flex items-center gap-2">
+            <div class="flex">
+              {[1,2,3,4,5].map(() => (
+                <svg class="size-4 text-primary fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span class="text-xs sm:text-sm text-text-secondary">Dipercaya 500+ siswa di Jambi</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Button -->
+      <div class="mt-8 sm:mt-10 animate-fade-in-up delay-400" style="opacity: 0;">
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 cursor-pointer">
+          <span>Daftar NASYA Sekarang</span>
+          <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Hero Image -->
+    <div class="mt-12 sm:mt-16 relative animate-fade-in-up delay-500" style="opacity: 0;">
+      <div class="aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/7] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative bg-gray-100">
+        <!-- Shimmer placeholder -->
+        <div class="absolute inset-0 shimmer-bg"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop"
+          alt="Belajar mengemudi di NASYA Jambi"
+          class="w-full h-full object-cover transition-opacity duration-500 opacity-0"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          onload="this.classList.remove('opacity-0'); this.previousElementSibling.style.display='none';"
+        />
+      </div>
+      
+      <!-- Floating Badge -->
+      <div class="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg flex items-center gap-2 sm:gap-3">
+        <div class="size-8 sm:size-10 bg-primary/10 rounded-full flex items-center justify-center">
+          <svg class="size-4 sm:size-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span class="text-sm sm:text-base font-semibold text-text-primary whitespace-nowrap">Berpengalaman 10+ Tahun</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-bg { animation: none; background: #f0f0f0; }
+  }
+</style>

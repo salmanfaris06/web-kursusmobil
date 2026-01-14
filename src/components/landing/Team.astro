@@ -1,0 +1,87 @@
+---
+const instructors = [
+  {
+    name: "Instruktur Senior",
+    role: "Instruktur berpengalaman 10+ tahun, sabar dan ramah dalam mengajar pemula",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop&crop=face"
+  },
+  {
+    name: "Instruktur Profesional",
+    role: "Ahli mengajar teknik mengemudi aman di jalan raya dan perkotaan",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=600&fit=crop&crop=face"
+  },
+  {
+    name: "Instruktur Bersertifikat",
+    role: "Spesialis mengajar parkir dan manuver dengan metode yang mudah dipahami",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face"
+  }
+];
+
+const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
+---
+
+<section class="py-16 sm:py-20 lg:py-24 bg-accent-cream/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-10 sm:mb-16 reveal">
+      <span class="section-label">Tim Instruktur</span>
+      <h2 class="mt-3 section-title">
+        Instruktur<br /><span class="text-primary">Berpengalaman</span>
+      </h2>
+      <p class="mt-4 section-subtitle mx-auto">
+        Setiap instruktur NASYA bersertifikat, sabar, dan berpengalaman, membantu Anda merasa percaya diri dan aman sejak pelajaran pertama
+      </p>
+    </div>
+    
+    <!-- Instructors Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {instructors.map((instructor, index) => (
+        <div class={`group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 reveal stagger-${index + 1}`}>
+          <div class="aspect-square overflow-hidden relative bg-gray-100">
+            <!-- Shimmer placeholder -->
+            <div class="absolute inset-0 shimmer-bg"></div>
+            <img 
+              src={instructor.image}
+              alt={instructor.name}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 opacity-0"
+              onload="this.classList.remove('opacity-0'); this.previousElementSibling.style.display='none';"
+            />
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="text-xl font-bold text-text-primary mb-2">
+              {instructor.name}
+            </h3>
+            <p class="text-text-secondary mb-6">
+              {instructor.role}
+            </p>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center">
+              <span>Daftar Sekarang</span>
+              <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-bg { animation: none; background: #f0f0f0; }
+  }
+</style>

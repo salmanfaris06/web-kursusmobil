@@ -5,28 +5,39 @@
 
 /* Custom theme using Tailwind v4 CSS-first configuration */
 @theme {
-  /* Primary Colors */
-  --color-primary: #137fec;
-  --color-primary-dark: #0e62b8;
+  /* DriveX Primary Colors */
+  --color-primary: #F86534;
+  --color-primary-light: #FF8962;
+  --color-primary-dark: #E55420;
   
   /* Background Colors */
-  --color-background-light: #f6f7f8;
-  --color-background-dark: #101922;
+  --color-background-light: #FFFBF8;
+  --color-background-dark: #161616;
   
   /* Text Colors */
-  --color-text-primary: #0d141b;
-  --color-text-secondary: #6b7280;
+  --color-text-primary: #161616;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
   
   /* Accent Colors */
   --color-accent-green: #25D366;
-  --color-accent-yellow: #facc15;
+  --color-accent-cream: #FFF5EE;
   
-  /* Card Background Dark Mode */
-  --color-card-dark: #1a2632;
-  --color-card-dark-alt: #16202a;
+  /* Card Background */
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #1F1F1F;
+  
+  /* Border Colors */
+  --color-border-light: #F3F4F6;
+  --color-border-dark: #2D2D2D;
   
   /* Font Family */
-  --font-display: 'Lexend', system-ui, sans-serif;
+  --font-display: 'Geist', system-ui, sans-serif;
+  
+  /* Border Radius */
+  --radius-button: 99px;
+  --radius-card: 24px;
+  --radius-card-lg: 32px;
 }
 
 /* Base Styles */
@@ -38,7 +49,8 @@ body {
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--color-background-light);
+  color: var(--color-text-primary);
 }
 
 /* Custom Scrollbar */
@@ -51,43 +63,100 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #E5E7EB;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #D1D5DB;
 }
 
-/* Dark Mode Scrollbar */
-.dark ::-webkit-scrollbar-thumb {
-  background: #475569;
+/* Section Typography */
+.section-label {
+  @apply text-sm font-medium text-primary uppercase tracking-wide;
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-text-primary leading-tight;
 }
 
-/* Material Symbols Configuration */
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+.section-subtitle {
+  @apply text-lg text-text-secondary max-w-2xl;
 }
 
-.material-symbols-outlined.fill-1 {
-  font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24;
+/* Button Styles */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-b from-primary-light to-primary text-white font-medium rounded-full transition-all duration-300 cursor-pointer;
+  box-shadow: 
+    0 0.74px 0.74px -0.95px rgba(248, 101, 52, 0.23),
+    0 2px 2px -1.9px rgba(248, 101, 52, 0.22),
+    0 4.4px 4.4px -2.85px rgba(248, 101, 52, 0.2),
+    0 9.8px 9.8px -3.8px rgba(248, 101, 52, 0.15);
 }
 
-/* ===== Animation Keyframes ===== */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 1px 1px -0.95px rgba(248, 101, 52, 0.25),
+    0 4px 4px -1.9px rgba(248, 101, 52, 0.24),
+    0 8px 8px -2.85px rgba(248, 101, 52, 0.22),
+    0 16px 16px -3.8px rgba(248, 101, 52, 0.18);
+}
 
-/* Fade in up */
+.btn-secondary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-white text-text-primary font-medium rounded-full border border-border-light transition-all duration-300 cursor-pointer;
+}
+
+.btn-secondary:hover {
+  @apply border-primary text-primary;
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+  @apply bg-card-light rounded-[24px] p-6 transition-all duration-300 cursor-pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Avatar Stack */
+.avatar-stack {
+  display: flex;
+}
+
+.avatar-stack img {
+  @apply size-10 rounded-full border-2 border-white object-cover;
+  margin-left: -8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-stack img:first-child {
+  margin-left: 0;
+}
+
+/* Image Carousel Animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-track {
+  animation: scroll-left 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Fade in animations */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -99,7 +168,77 @@ body {
   }
 }
 
-/* Fade in */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Staggered delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* FAQ Accordion */
+.faq-item {
+  @apply border-b border-border-light;
+}
+
+.faq-trigger {
+  @apply flex items-center justify-between w-full py-5 text-left text-lg font-medium text-text-primary;
+}
+
+.faq-trigger:hover {
+  @apply text-primary;
+}
+
+.faq-content {
+  @apply pb-5 text-text-secondary;
+  display: none;
+}
+
+.faq-item.active .faq-content {
+  display: block;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Counter animation */
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================ */
+/* ANIMATION SYSTEM - NASYA        */
+/* ================================ */
+
+/* Slide Down - for Header */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.6s ease-out forwards;
+}
+
+/* Fade In - basic */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -109,20 +248,12 @@ body {
   }
 }
 
-/* Scale in */
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
 }
 
-/* Slide in from left */
-@keyframes slide-in-left {
+/* Fade Slide In - from left */
+@keyframes fade-slide-left {
   from {
     opacity: 0;
     transform: translateX(-30px);
@@ -133,8 +264,12 @@ body {
   }
 }
 
-/* Slide in from right */
-@keyframes slide-in-right {
+.animate-fade-slide-left {
+  animation: fade-slide-left 0.6s ease-out forwards;
+}
+
+/* Fade Slide In - from right */
+@keyframes fade-slide-right {
   from {
     opacity: 0;
     transform: translateX(30px);
@@ -145,139 +280,167 @@ body {
   }
 }
 
-/* Bounce in */
-@keyframes bounce-in {
-  0% {
+.animate-fade-slide-right {
+  animation: fade-slide-right 0.6s ease-out forwards;
+}
+
+/* Scale In - for cards */
+@keyframes scale-in {
+  from {
     opacity: 0;
-    transform: scale(0.3);
+    transform: scale(0.95);
   }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-/* ===== Animation Classes ===== */
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
 }
 
 .animate-scale-in {
   animation: scale-in 0.5s ease-out forwards;
 }
 
-.animate-slide-in-left {
-  animation: slide-in-left 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s ease-out forwards;
+/* Bounce In - for FAB */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .animate-bounce-in {
-  animation: bounce-in 0.6s ease-out forwards;
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-/* ===== Scroll Animation Base ===== */
-
-.scroll-animate,
-.scroll-animate-feature,
-.scroll-animate-testimonial {
-  opacity: 0;
-  transition: opacity 0.1s;
+/* Float - subtle up/down */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.scroll-animate.animate-on-scroll,
-.scroll-animate-feature.animate-on-scroll,
-.scroll-animate-testimonial.animate-on-scroll {
-  opacity: 0;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-.scroll-animate.is-visible,
-.scroll-animate-feature.is-visible,
-.scroll-animate-testimonial.is-visible {
-  opacity: 1;
-}
-
-/* Staggered delay utilities */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
-
-/* ===== Card Hover Animations ===== */
-
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
-}
-
-.dark .card-hover:hover {
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
-}
-
-/* Feature card icon pulse on hover */
-@keyframes icon-pulse {
+/* Pulse Scale - for emphasis */
+@keyframes pulse-scale {
   0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
 
-.feature-icon-pulse:hover {
-  animation: icon-pulse 0.6s ease-in-out;
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
 }
 
-/* Package card special hover */
-.package-card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+/* ================================ */
+/* SCROLL REVEAL SYSTEM            */
+/* ================================ */
+
+/* Initial state - hidden */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.package-card-hover:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(19, 127, 236, 0.25);
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Testimonial card hover */
-.testimonial-card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Reveal variants */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.testimonial-card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.dark .testimonial-card-hover:hover {
-  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* ===== Dark Mode Transition ===== */
-
-.theme-transition,
-.theme-transition *,
-.theme-transition *::before,
-.theme-transition *::after {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease !important;
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
 }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-1 { transition-delay: 0ms; }
+.stagger-2 { transition-delay: 100ms; }
+.stagger-3 { transition-delay: 200ms; }
+.stagger-4 { transition-delay: 300ms; }
+.stagger-5 { transition-delay: 400ms; }
+.stagger-6 { transition-delay: 500ms; }
+.stagger-7 { transition-delay: 600ms; }
+.stagger-8 { transition-delay: 700ms; }
+
+/* ================================ */
+/* ACCESSIBILITY - Reduced Motion  */
+/* ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .carousel-track {
+    animation: none;
+  }
+}
+
+/* ================================ */
+/* Z-INDEX SYSTEM                   */
+/* ================================ */
+/* 
+  z-10: Base elevated elements
+  z-20: Dropdowns, tooltips
+  z-30: Sticky elements
+  z-40: Fixed navbar
+  z-50: FAB, floating elements
+  z-60: Modals, overlays
+*/

@@ -1,0 +1,41 @@
+---
+// ScrollReveal.astro - Client-side scroll reveal script
+// Add this component once in your layout or page
+---
+
+<script>
+  // Scroll Reveal using Intersection Observer
+  const initScrollReveal = () => {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    
+    if (revealElements.length === 0) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            // Optional: unobserve after revealing for performance
+            // observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+    
+    revealElements.forEach((el) => observer.observe(el));
+  };
+  
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+  } else {
+    initScrollReveal();
+  }
+  
+  // Re-initialize on page navigation (for View Transitions)
+  document.addEventListener('astro:page-load', initScrollReveal);
+</script>

@@ -21,8 +21,10 @@ planning:
     file: "_bmad-output/planning-artifacts/prd.md"
     completed_date: "2026-01-11"
   ux_design:
-    status: "pending"
-    note: "Conditional - if_has_ui (this project HAS UI)"
+    status: "completed"
+    file: "existing-ui-content-aligned-to-prd"
+    completed_date: "2026-01-14"
+    note: "UI sudah ada - konten disesuaikan dengan PRD (16 komponen Astro diupdate)"
 
 # Solutioning Phase
 solutioning:
@@ -47,8 +49,8 @@ implementation:
 
 # Next Step
 next_workflow:
-  id: "create-ux-design"
-  name: "Create UX Design"
-  agent: "ux-designer"
-  command: "/bmad:bmm:workflows:create-ux-design"
-  alternative: "Skip to Architecture if no detailed UX needed"
+  id: "create-architecture"
+  name: "Create Architecture"
+  agent: "architect"
+  command: "/bmad:bmm:workflows:create-architecture"
+  note: "UX Design completed - proceed to system architecture"

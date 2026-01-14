@@ -1,0 +1,61 @@
+---
+const articles = [
+  {
+    title: "How to Stay Calm Before Your Driving Test",
+    date: "October 14, 2025",
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop",
+    href: "#"
+  },
+  {
+    title: "Manual vs Automatic: Which Should You Learn First?",
+    date: "October 12, 2025",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop",
+    href: "#"
+  }
+];
+---
+
+<section class="py-24 bg-accent-cream/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="section-label">Latest Articles</span>
+        <h2 class="mt-3 section-title">
+          Our School<br /><span class="text-primary">Driving Blog</span>
+        </h2>
+        <p class="mt-4 section-subtitle">
+          Read helpful articles about driving, safety tips, and real student experiences
+        </p>
+      </div>
+      
+      <a href="#" class="btn-secondary shrink-0">
+        <span>Read Articles</span>
+        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+    
+    <!-- Articles Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {articles.map((article) => (
+        <a href={article.href} class="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+          <div class="aspect-[16/10] overflow-hidden">
+            <img 
+              src={article.image}
+              alt={article.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-6">
+            <p class="text-sm text-text-secondary mb-2">{article.date}</p>
+            <h3 class="text-xl font-bold text-text-primary group-hover:text-primary transition-colors">
+              {article.title}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
