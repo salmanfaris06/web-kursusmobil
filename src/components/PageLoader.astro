@@ -6,8 +6,11 @@
 ---
 
 <!-- Page Loader Overlay -->
-<div id="page-loader" class="fixed inset-0 z-[100] bg-background-light flex items-center justify-center transition-opacity duration-500">
-  <div class="flex flex-col items-center gap-4">
+<div 
+  id="page-loader" 
+  style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background-color:#FAF5FF;margin:0;padding:0;"
+>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:16px;">
     <!-- Animated Logo -->
     <div class="relative">
       <!-- Steering wheel icon -->
@@ -55,6 +58,7 @@
   #page-loader.loaded {
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.5s ease;
   }
 </style>
 
