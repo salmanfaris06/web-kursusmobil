@@ -1,0 +1,524 @@
+---
+/**
+ * MotionAnimations.astro - Premium Animation Controller
+ * Powered by Motion.dev for 120fps GPU-accelerated animations
+ * 
+ * Features:
+ * - Spring physics entrance animations
+ * - Scroll parallax effects
+ * - Magnetic hover interactions
+ * - Counter animations
+ * - Staggered reveals
+ * - Accessibility (prefers-reduced-motion)
+ */
+---
+
+<script>
+  import { animate, inView, stagger } from 'motion';
+
+  // ================================
+  // CONFIGURATION
+  // ================================
+  
+  const config = {
+    // Apple-inspired timing (smooth and elegant)
+    easing: [0.22, 1, 0.36, 1] as [number, number, number, number],
+    springEasing: [0.34, 1.56, 0.64, 1] as [number, number, number, number],
+    duration: {
+      fast: 0.3,
+      normal: 0.6,
+      slow: 0.8,
+      stagger: 0.08,
+    },
+  };
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ================================
+  // UTILITY FUNCTIONS
+  // ================================
+
+  function safeAnimate(elements: Element | Element[] | NodeListOf<Element> | null, keyframes: object, options: object = {}) {
+    if (prefersReducedMotion || !elements) return;
+    if (elements instanceof NodeList && elements.length === 0) return;
+    try {
+      return animate(elements as Element, keyframes, options);
+    } catch (e) {
+      // Silent fail for animation errors
+    }
+  }
+
+  // ================================
+  // HERO SECTION - Staggered Entrance
+  // ================================
+
+  function initHeroAnimations() {
+    const heroTitle = document.querySelector('.hero-title');
+    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroBadges = document.querySelectorAll('.hero-badge');
+    const heroSocialProof = document.querySelector('.hero-social-proof');
+    const heroCTA = document.querySelector('.hero-cta');
+    const heroImage = document.querySelector('.hero-image');
+    const floatingBadge = document.querySelector('.floating-badge');
+
+    // Animate hero title
+    if (heroTitle) {
+      (heroTitle as HTMLElement).style.opacity = '0';
+      (heroTitle as HTMLElement).style.transform = 'translateY(30px)';
+      safeAnimate(heroTitle,
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { delay: 0.1, duration: config.duration.normal, easing: config.easing }
+      );
+    }
+
+    // Animate subtitle
+    if (heroSubtitle) {
+      (heroSubtitle as HTMLElement).style.opacity = '0';
+      (heroSubtitle as HTMLElement).style.transform = 'translateY(30px)';
+      safeAnimate(heroSubtitle,
+        { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+        { delay: 0.2, duration: config.duration.normal, easing: config.easing }
+      );
+    }
+
+    // Animate badges with stagger
+    if (heroBadges.length > 0) {
+      heroBadges.forEach((badge, i) => {
+        (badge as HTMLElement).style.opacity = '0';
+        (badge as HTMLElement).style.transform = 'translateY(20px)';
+      });
+      safeAnimate(heroBadges,
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+        { delay: stagger(0.06, { from: 'first' } as any), duration: config.duration.fast, easing: config.easing }
+      );
+    }
+
+    // Animate social proof
+    if (heroSocialProof) {
+      (heroSocialProof as HTMLElement).style.opacity = '0';
+      (heroSocialProof as HTMLElement).style.transform = 'translateY(20px)';
+      safeAnimate(heroSocialProof,
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+        { delay: 0.5, duration: config.duration.normal, easing: config.easing }
+      );
+    }
+
+    // Animate CTA
+    if (heroCTA) {
+      (heroCTA as HTMLElement).style.opacity = '0';
+      (heroCTA as HTMLElement).style.transform = 'translateY(20px)';
+      safeAnimate(heroCTA,
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+        { delay: 0.6, duration: config.duration.normal, easing: config.easing }
+      );
+    }
+
+    // Animate hero image
+    if (heroImage) {
+      (heroImage as HTMLElement).style.opacity = '0';
+      (heroImage as HTMLElement).style.transform = 'translateY(40px)';
+      safeAnimate(heroImage,
+        { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+        { delay: 0.7, duration: config.duration.slow, easing: config.easing }
+      );
+    }
+
+    // Floating badge with bounce
+    if (floatingBadge) {
+      (floatingBadge as HTMLElement).style.opacity = '0';
+      (floatingBadge as HTMLElement).style.transform = 'translateX(-50%) scale(0.8)';
+      safeAnimate(floatingBadge,
+        { opacity: [0, 1], transform: ['translateX(-50%) scale(0.8)', 'translateX(-50%) scale(1)'] },
+        { delay: 1, duration: 0.5, easing: config.springEasing }
+      );
+    }
+  }
+
+  // ================================
+  // SCROLL REVEAL - Enhanced with Motion
+  // ================================
+
+  function initScrollReveal() {
+    // Reveal from bottom
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'translateY(40px)';
+      
+      inView(el, () => {
+        safeAnimate(el,
+          { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+          { duration: config.duration.normal, easing: config.easing }
+        );
+      }, { amount: 0.2 });
+    });
+
+    // Reveal from left
+    const revealLeftElements = document.querySelectorAll('.reveal-left');
+    revealLeftElements.forEach((el) => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'translateX(-50px)';
+      
+      inView(el, () => {
+        safeAnimate(el,
+          { opacity: [0, 1], transform: ['translateX(-50px)', 'translateX(0)'] },
+          { duration: config.duration.normal, easing: config.easing }
+        );
+      }, { amount: 0.2 });
+    });
+
+    // Reveal from right
+    const revealRightElements = document.querySelectorAll('.reveal-right');
+    revealRightElements.forEach((el) => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'translateX(50px)';
+      
+      inView(el, () => {
+        safeAnimate(el,
+          { opacity: [0, 1], transform: ['translateX(50px)', 'translateX(0)'] },
+          { duration: config.duration.normal, easing: config.easing }
+        );
+      }, { amount: 0.2 });
+    });
+
+    // Scale reveal
+    const revealScaleElements = document.querySelectorAll('.reveal-scale');
+    revealScaleElements.forEach((el) => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'scale(0.9)';
+      
+      inView(el, () => {
+        safeAnimate(el,
+          { opacity: [0, 1], transform: ['scale(0.9)', 'scale(1)'] },
+          { duration: config.duration.fast, easing: config.springEasing }
+        );
+      }, { amount: 0.2 });
+    });
+  }
+
+  // ================================
+  // MAGNETIC HOVER - Cards & Buttons
+  // ================================
+
+  function initMagneticHover() {
+    const magneticElements = document.querySelectorAll('.card, [data-motion="magnetic"]');
+    
+    magneticElements.forEach((el) => {
+      const element = el as HTMLElement;
+      
+      element.addEventListener('mouseenter', () => {
+        safeAnimate(element,
+          { transform: 'translateY(-8px)' },
+          { duration: config.duration.fast, easing: config.springEasing }
+        );
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        safeAnimate(element,
+          { transform: 'translateY(0)' },
+          { duration: config.duration.fast, easing: config.easing }
+        );
+      });
+    });
+
+    // Enhanced button hover
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, [data-motion="button"]');
+    buttons.forEach((btn) => {
+      const button = btn as HTMLElement;
+      
+      button.addEventListener('mouseenter', () => {
+        safeAnimate(button,
+          { transform: 'scale(1.02) translateY(-2px)' },
+          { duration: 0.2, easing: config.springEasing }
+        );
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        safeAnimate(button,
+          { transform: 'scale(1) translateY(0)' },
+          { duration: 0.2, easing: config.easing }
+        );
+      });
+      
+      button.addEventListener('mousedown', () => {
+        safeAnimate(button,
+          { transform: 'scale(0.98)' },
+          { duration: 0.1, easing: config.easing }
+        );
+      });
+      
+      button.addEventListener('mouseup', () => {
+        safeAnimate(button,
+          { transform: 'scale(1.02)' },
+          { duration: 0.1, easing: config.springEasing }
+        );
+      });
+    });
+  }
+
+  // ================================
+  // COUNTER ANIMATION - Stats
+  // ================================
+
+  function initCounterAnimations() {
+    const counters = document.querySelectorAll('.stat-counter, [data-target]');
+    
+    counters.forEach((counter) => {
+      const element = counter as HTMLElement;
+      const target = parseFloat(element.dataset.target || '0');
+      const suffix = element.dataset.suffix || '';
+      const isDecimal = target % 1 !== 0;
+      let hasAnimated = false;
+      
+      inView(element, () => {
+        // Prevent re-animation
+        if (hasAnimated) return;
+        hasAnimated = true;
+        
+        if (prefersReducedMotion) {
+          element.textContent = (isDecimal ? target.toFixed(1) : target.toString()) + suffix;
+          return;
+        }
+        
+        const duration = 2000;
+        const startTime = performance.now();
+        
+        const updateCounter = (currentTime: number) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function for smooth animation
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const current = target * easeOutQuart;
+          
+          if (progress < 1) {
+            element.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current).toString()) + suffix;
+            requestAnimationFrame(updateCounter);
+          } else {
+            element.textContent = (isDecimal ? target.toFixed(1) : target.toString()) + suffix;
+          }
+        };
+        
+        // Start from 0
+        element.textContent = '0' + suffix;
+        requestAnimationFrame(updateCounter);
+      }, { amount: 0.3 });
+    });
+  }
+
+  // ================================
+  // WHATSAPP FAB - Attention Animation
+  // ================================
+
+  function initWhatsAppFAB() {
+    const fab = document.querySelector('[aria-label="Chat via WhatsApp"], .whatsapp-fab, a[href*="wa.me"]');
+    if (!fab) return;
+    
+    const element = fab as HTMLElement;
+    
+    // Set initial state
+    element.style.opacity = '0';
+    element.style.transform = 'scale(0.5)';
+    
+    // Entrance animation after delay
+    setTimeout(() => {
+      safeAnimate(element,
+        { opacity: [0, 1], transform: ['scale(0.5)', 'scale(1.1)', 'scale(1)'] },
+        { duration: 0.6, easing: config.springEasing }
+      );
+    }, 1500);
+    
+    // Hover effect
+    element.addEventListener('mouseenter', () => {
+      safeAnimate(element,
+        { transform: 'scale(1.15) rotate(5deg)' },
+        { duration: 0.2, easing: config.springEasing }
+      );
+    });
+    
+    element.addEventListener('mouseleave', () => {
+      safeAnimate(element,
+        { transform: 'scale(1) rotate(0deg)' },
+        { duration: 0.3, easing: config.easing }
+      );
+    });
+  }
+
+  // ================================
+  // HEADER - Scroll Effects
+  // ================================
+
+  function initHeaderAnimations() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    const element = header as HTMLElement;
+    
+    // Initial slide down
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(-20px)';
+    
+    setTimeout(() => {
+      safeAnimate(element,
+        { opacity: [0, 1], transform: ['translateY(-20px)', 'translateY(0)'] },
+        { duration: config.duration.normal, easing: config.easing }
+      );
+    }, 200);
+  }
+
+  // ================================
+  // IMAGE REVEAL - Smooth Loading
+  // ================================
+
+  function initImageReveals() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    images.forEach((img) => {
+      const element = img as HTMLImageElement;
+      
+      if (element.complete) {
+        element.style.opacity = '1';
+        return;
+      }
+      
+      element.style.opacity = '0';
+      
+      element.addEventListener('load', () => {
+        safeAnimate(element,
+          { opacity: [0, 1] },
+          { duration: 0.5, easing: config.easing }
+        );
+      });
+    });
+  }
+
+  // ================================
+  // IMAGE HOVER ZOOM + BRIGHTNESS
+  // ================================
+
+  function initImageHoverZoom() {
+    const imageContainers = document.querySelectorAll('.group');
+    
+    imageContainers.forEach((container) => {
+      const img = container.querySelector('img');
+      if (!img) return;
+      
+      container.addEventListener('mouseenter', () => {
+        safeAnimate(img,
+          { transform: 'scale(1.08)', filter: 'brightness(1.1)' },
+          { duration: 0.5, easing: config.easing }
+        );
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        safeAnimate(img,
+          { transform: 'scale(1)', filter: 'brightness(1)' },
+          { duration: 0.4, easing: config.easing }
+        );
+      });
+    });
+
+    // Also apply to standalone image containers
+    const standaloneImages = document.querySelectorAll('[class*="overflow-hidden"] img');
+    standaloneImages.forEach((img) => {
+      const container = img.closest('[class*="overflow-hidden"]');
+      if (!container || container.closest('.group')) return; // Skip if already in a group
+      
+      container.addEventListener('mouseenter', () => {
+        safeAnimate(img,
+          { transform: 'scale(1.08)', filter: 'brightness(1.1)' },
+          { duration: 0.5, easing: config.easing }
+        );
+      });
+      
+      container.addEventListener('mouseleave', () => {
+        safeAnimate(img,
+          { transform: 'scale(1)', filter: 'brightness(1)' },
+          { duration: 0.4, easing: config.easing }
+        );
+      });
+    });
+  }
+
+  // ================================
+  // SECTION HEADERS
+  // ================================
+
+  function initSectionHeaders() {
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach((section, index) => {
+      if (index === 0) return; // Skip hero
+      
+      const label = section.querySelector('.section-label');
+      const title = section.querySelector('.section-title');
+      const subtitle = section.querySelector('.section-subtitle');
+      
+      [label, title, subtitle].forEach((el, i) => {
+        if (!el) return;
+        const element = el as HTMLElement;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        
+        inView(section, () => {
+          safeAnimate(element,
+            { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+            { delay: i * 0.1, duration: config.duration.normal, easing: config.easing }
+          );
+        }, { amount: 0.1 });
+      });
+    });
+  }
+
+  // ================================
+  // INITIALIZE ALL ANIMATIONS
+  // ================================
+
+  function initAllAnimations() {
+    if (prefersReducedMotion) {
+      console.log('Motion: Reduced motion enabled, showing all elements');
+      // Show all elements immediately
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        (el as HTMLElement).style.opacity = '1';
+        (el as HTMLElement).style.transform = 'none';
+      });
+      document.querySelectorAll('.hero-title, .hero-subtitle, .hero-badge, .hero-social-proof, .hero-cta, .hero-image, .floating-badge').forEach(el => {
+        (el as HTMLElement).style.opacity = '1';
+        (el as HTMLElement).style.transform = 'none';
+      });
+      // Still run counter animations (they handle reduced motion internally)
+      initCounterAnimations();
+      return;
+    }
+
+    console.log('Motion: Initializing premium animations...');
+    
+    // Core animations
+    initHeroAnimations();
+    initScrollReveal();
+    initSectionHeaders();
+    
+    // Interactive effects
+    initMagneticHover();
+    initImageHoverZoom();
+    
+    // Special elements
+    initWhatsAppFAB();
+    initHeaderAnimations();
+    initCounterAnimations();
+    initImageReveals();
+    
+    console.log('Motion: All animations initialized ✨');
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAllAnimations);
+  } else {
+    initAllAnimations();
+  }
+
+  // Re-initialize on Astro page navigation
+  document.addEventListener('astro:page-load', initAllAnimations);
+</script>

@@ -29,7 +29,7 @@ const faqs = [
 const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20bertanya%20tentang%20kursus%20mengemudi";
 ---
 
-<section class="py-16 sm:py-20 lg:py-24 bg-white">
+<section class="py-16 sm:py-20 lg:py-24 bg-accent-cream/30">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center mb-8 sm:mb-12 reveal">
@@ -52,9 +52,9 @@ const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20in
     </div>
     
     <!-- FAQ List -->
-    <div class="divide-y divide-border-light">
+    <div class="space-y-4">
       {faqs.map((faq, index) => (
-        <div class={`faq-item py-6 reveal stagger-${index + 1}`} data-faq-index={index}>
+        <div class={`faq-item bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 reveal stagger-${index + 1}`} data-faq-index={index}>
           <button class="faq-trigger w-full text-left flex items-center justify-between gap-4">
             <span class="text-lg font-semibold text-text-primary">{faq.question}</span>
             <span class="faq-icon size-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300">

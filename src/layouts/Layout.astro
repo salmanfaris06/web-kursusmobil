@@ -3,6 +3,7 @@ import '../styles/global.css';
 import ScrollReveal from '../components/ScrollReveal.astro';
 import PageLoader from '../components/PageLoader.astro';
 import SEOSchema from '../components/SEOSchema.astro';
+import MotionAnimations from '../components/MotionAnimations.astro';
 
 interface Props {
   title?: string;
@@ -30,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
     <meta name="color-scheme" content="light dark" />
     <meta name="author" content="NASYA Jambi" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#F86534" />
+    <meta name="theme-color" content="#7C3AED" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
@@ -85,9 +86,10 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
       })();
     </script>
   </head>
-  <body class="bg-background-light dark:bg-background-dark text-text-primary dark:text-white font-display overflow-x-hidden antialiased flex flex-col min-h-screen transition-colors duration-300">
+  <body class="bg-background-light dark:bg-background-dark text-text-primary dark:text-white font-display overflow-x-hidden antialiased transition-colors duration-300">
     <PageLoader />
     <slot />
     <ScrollReveal />
+    <MotionAnimations />
   </body>
 </html>

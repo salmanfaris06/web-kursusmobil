@@ -18,33 +18,33 @@ const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20in
   </div>
   
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-4xl mx-auto">
+    <div class="hero-content text-center max-w-4xl mx-auto">
       <!-- Headline -->
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight animate-fade-in-up">
+      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary leading-[1.1] tracking-tight">
         Kursus Mengemudi<br />
         <span class="text-primary">NASYA</span> Jambi
       </h1>
       
       <!-- Subtitle -->
-      <p class="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto animate-fade-in-up delay-100" style="opacity: 0;">
+      <p class="hero-subtitle mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
         Belajar mengemudi dengan instruktur berpengalaman 10+ tahun. Dapatkan SIM dengan cepat, aman, dan terpercaya.
       </p>
       
       <!-- USP Badges -->
-      <div class="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4 animate-fade-in-up delay-200" style="opacity: 0;">
-        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+      <div class="hero-badges mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+        <div class="hero-badge flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
           <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
           </svg>
           <span>Antar-Jemput Gratis</span>
         </div>
-        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+        <div class="hero-badge flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
           <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <span>Jaminan Lulus SIM</span>
         </div>
-        <div class="flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+        <div class="hero-badge flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
           <svg class="size-4 sm:size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -53,7 +53,7 @@ const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20in
       </div>
       
       <!-- Social Proof -->
-      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-fade-in-up delay-300" style="opacity: 0;">
+      <div class="hero-social-proof mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
         <!-- Avatar Stack -->
         <div class="flex items-center gap-3 sm:gap-4">
           <div class="avatar-stack flex">
@@ -82,8 +82,8 @@ const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20in
       </div>
       
       <!-- CTA Button -->
-      <div class="mt-8 sm:mt-10 animate-fade-in-up delay-400" style="opacity: 0;">
-        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 cursor-pointer">
+      <div class="hero-cta mt-8 sm:mt-10">
+        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 cursor-pointer" data-motion="button">
           <span>Daftar NASYA Sekarang</span>
           <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -93,23 +93,24 @@ const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20in
     </div>
     
     <!-- Hero Image -->
-    <div class="mt-12 sm:mt-16 relative animate-fade-in-up delay-500" style="opacity: 0;">
+    <div class="hero-image mt-12 sm:mt-16 relative">
       <div class="aspect-[16/9] sm:aspect-[16/8] lg:aspect-[16/7] rounded-2xl sm:rounded-[32px] overflow-hidden shadow-2xl relative bg-gray-100">
         <!-- Shimmer placeholder -->
         <div class="absolute inset-0 shimmer-bg"></div>
         <img 
           src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop"
           alt="Belajar mengemudi di NASYA Jambi"
-          class="w-full h-full object-cover transition-opacity duration-500 opacity-0"
+          class="w-full h-full object-cover"
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          onload="this.classList.remove('opacity-0'); this.previousElementSibling.style.display='none';"
+          onload="this.style.opacity='1'; this.previousElementSibling.style.display='none';"
+          style="opacity: 0; transition: opacity 0.5s ease;"
         />
       </div>
       
       <!-- Floating Badge -->
-      <div class="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg flex items-center gap-2 sm:gap-3">
+      <div class="floating-badge absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-white rounded-full px-4 sm:px-6 py-2 sm:py-3 shadow-lg flex items-center gap-2 sm:gap-3">
         <div class="size-8 sm:size-10 bg-primary/10 rounded-full flex items-center justify-center">
           <svg class="size-4 sm:size-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

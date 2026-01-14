@@ -2,12 +2,12 @@
   <!-- Background with gradient -->
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFFBF8"/>
-      <stop offset="100%" style="stop-color:#FFF5EE"/>
+      <stop offset="0%" style="stop-color:#FAF5FF"/>
+      <stop offset="100%" style="stop-color:#F5F3FF"/>
     </linearGradient>
     <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF8962"/>
-      <stop offset="100%" style="stop-color:#F86534"/>
+      <stop offset="0%" style="stop-color:#A78BFA"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
     </linearGradient>
   </defs>
   
@@ -15,8 +15,8 @@
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
   
   <!-- Decorative circles -->
-  <circle cx="100" cy="100" r="200" fill="#F86534" opacity="0.05"/>
-  <circle cx="1100" cy="530" r="250" fill="#F86534" opacity="0.05"/>
+  <circle cx="100" cy="100" r="200" fill="#7C3AED" opacity="0.05"/>
+  <circle cx="1100" cy="530" r="250" fill="#7C3AED" opacity="0.05"/>
   
   <!-- Logo icon (steering wheel) -->
   <g transform="translate(540, 150)">
@@ -32,7 +32,7 @@
   </g>
   
   <!-- Brand name -->
-  <text x="600" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#161616" text-anchor="middle">NASYA</text>
+  <text x="600" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#1E1B4B" text-anchor="middle">NASYA</text>
   
   <!-- Tagline -->
   <text x="600" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#6B7280" text-anchor="middle">Kursus Mengemudi Terpercaya di Jambi</text>
@@ -40,16 +40,16 @@
   <!-- USP badges -->
   <g transform="translate(600, 450)">
     <!-- Badge 1 -->
-    <rect x="-320" y="0" width="180" height="50" rx="25" fill="#F86534" opacity="0.1"/>
-    <text x="-230" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#F86534" text-anchor="middle">Instruktur 10+ Tahun</text>
+    <rect x="-320" y="0" width="180" height="50" rx="25" fill="#7C3AED" opacity="0.1"/>
+    <text x="-230" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#7C3AED" text-anchor="middle">Instruktur 10+ Tahun</text>
     
     <!-- Badge 2 -->
-    <rect x="-90" y="0" width="180" height="50" rx="25" fill="#F86534" opacity="0.1"/>
-    <text x="0" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#F86534" text-anchor="middle">Jaminan Lulus SIM</text>
+    <rect x="-90" y="0" width="180" height="50" rx="25" fill="#7C3AED" opacity="0.1"/>
+    <text x="0" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#7C3AED" text-anchor="middle">Jaminan Lulus SIM</text>
     
     <!-- Badge 3 -->
-    <rect x="140" y="0" width="180" height="50" rx="25" fill="#F86534" opacity="0.1"/>
-    <text x="230" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#F86534" text-anchor="middle">Antar-Jemput Gratis</text>
+    <rect x="140" y="0" width="180" height="50" rx="25" fill="#7C3AED" opacity="0.1"/>
+    <text x="230" y="32" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#7C3AED" text-anchor="middle">Antar-Jemput Gratis</text>
   </g>
   
   <!-- Website URL -->

@@ -49,16 +49,16 @@ const stages = [
       {stages.map((stage, index) => (
         <div class={`relative flex items-start gap-8 mb-12 last:mb-0 reveal stagger-${index + 1} ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
           <!-- Number Circle -->
-          <div class="relative z-10 flex-shrink-0 size-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg md:absolute md:left-1/2 md:-translate-x-1/2">
+          <div class="relative z-10 flex-shrink-0 size-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg md:absolute md:left-1/2 md:-translate-x-1/2">
             {stage.number}
           </div>
           
           <!-- Content Card -->
-          <div class={`flex-1 bg-accent-cream/30 rounded-2xl p-6 ${index % 2 === 0 ? 'md:mr-auto md:pr-24' : 'md:ml-auto md:pl-24'} md:w-[calc(50%-40px)]`}>
+          <div class={`flex-1 bg-white rounded-2xl p-6 shadow-md border border-border-light md:w-[calc(50%-50px)] md:text-left ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
             <h3 class="text-xl font-bold text-text-primary mb-2">
               {stage.title}
             </h3>
-            <p class="text-text-secondary">
+            <p class="text-text-secondary text-sm sm:text-base">
               {stage.description}
             </p>
           </div>
