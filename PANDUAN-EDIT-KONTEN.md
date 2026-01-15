@@ -412,7 +412,7 @@ const {
 ### Site URL (Baris 20)
 
 ```javascript
-const siteUrl = "https://nasyajambi.com"; // Ganti dengan domain Anda
+const siteUrl = "https://nasyajambi.vercel.app"; // Ganti dengan domain Anda
 ```
 
 ---

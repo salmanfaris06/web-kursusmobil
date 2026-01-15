@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
     "Belajar mengemudi Cepat, Aman, & Terpercaya dengan instruktur profesional. Kami bantu sampai mahir dan dapat SIM.",
   whatsapp: "628127304929",
   phone: "+62 812-3456-7890",
-  email: "info@nasyajambi.com",
+  email: "info@nasyajambi.vercel.app",
   address: "Jl. Pangeran Hidayat No. 45, Kota Baru, Jambi, Indonesia 36129",
   addressShort: "Jl. Pangeran Hidayat No. 45, Kota Baru, Jambi",
   operatingHours: "Senin - Minggu (08:00 - 17:00)",

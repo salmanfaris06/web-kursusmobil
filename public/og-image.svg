@@ -53,5 +53,5 @@
   </g>
   
   <!-- Website URL -->
-  <text x="600" y="570" font-family="system-ui, sans-serif" font-size="20" font-weight="500" fill="#9CA3AF" text-anchor="middle">nasyajambi.com</text>
+  <text x="600" y="570" font-family="system-ui, sans-serif" font-size="20" font-weight="500" fill="#9CA3AF" text-anchor="middle">nasyajambi.vercel.app</text>
 </svg>
