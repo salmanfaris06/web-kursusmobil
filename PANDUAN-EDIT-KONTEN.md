@@ -52,27 +52,30 @@ src/
 
 ### File yang perlu diubah:
 
-| File | Baris |
-|------|-------|
-| `src/components/landing/Hero.astro` | Baris 10 |
-| `src/components/landing/Pricing.astro` | Baris 65 |
-| `src/components/landing/FAQ.astro` | Baris 29 |
-| `src/components/landing/Team.astro` | Baris 20 |
-| `src/components/landing/Footer.astro` | Baris 9 |
-| `src/components/landing/WhatsAppFAB.astro` | Baris 2 |
-| `src/components/landing/CTA.astro` | (cek file) |
+| File                                       | Baris      |
+| ------------------------------------------ | ---------- |
+| `src/components/landing/Hero.astro`        | Baris 10   |
+| `src/components/landing/Pricing.astro`     | Baris 65   |
+| `src/components/landing/FAQ.astro`         | Baris 29   |
+| `src/components/landing/Team.astro`        | Baris 20   |
+| `src/components/landing/Footer.astro`      | Baris 9    |
+| `src/components/landing/WhatsAppFAB.astro` | Baris 2    |
+| `src/components/landing/CTA.astro`         | (cek file) |
 
 ### Contoh format:
 
 ```javascript
 // SEBELUM (contoh)
-const whatsappLink = "https://wa.me/6281234567890?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
+const whatsappLink =
+  "https://wa.me/628127304929?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
 
 // SESUDAH (ganti dengan nomor Anda)
-const whatsappLink = "https://wa.me/628xxxxxxxxxx?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
+const whatsappLink =
+  "https://wa.me/628xxxxxxxxxx?text=Halo%20NASYA,%20saya%20ingin%20mendaftar%20kursus%20mengemudi";
 ```
 
 **Format nomor:**
+
 - Gunakan kode negara tanpa tanda `+` (contoh: `62` untuk Indonesia)
 - Tidak boleh ada spasi atau tanda hubung
 - Contoh: `628123456789` (bukan `+62-812-345-6789`)
@@ -103,17 +106,20 @@ const whatsappLink = "https://wa.me/628xxxxxxxxxx?text=Halo%20NASYA,%20saya%20in
 
 ```html
 <p class="hero-subtitle ...">
-  Belajar mengemudi dengan instruktur berpengalaman 10+ tahun. 
-  Dapatkan SIM dengan cepat, aman, dan terpercaya.
+  Belajar mengemudi dengan instruktur berpengalaman 10+ tahun. Dapatkan SIM
+  dengan cepat, aman, dan terpercaya.
 </p>
 ```
 
 ### 3.3 Badge/Keunggulan (Baris 35-52)
 
 ```html
-<span>Antar-Jemput Gratis</span>   <!-- Badge 1 -->
-<span>Jaminan Lulus SIM</span>     <!-- Badge 2 -->
-<span>Instruktur 10+ Tahun</span>  <!-- Badge 3 -->
+<span>Antar-Jemput Gratis</span>
+<!-- Badge 1 -->
+<span>Jaminan Lulus SIM</span>
+<!-- Badge 2 -->
+<span>Instruktur 10+ Tahun</span>
+<!-- Badge 3 -->
 ```
 
 ### 3.4 Social Proof (Baris 79)
@@ -145,18 +151,19 @@ const whatsappLink = "https://wa.me/628xxxxxxxxxx?text=Halo%20NASYA,%20saya%20in
 ```javascript
 const plans = [
   {
-    name: "Paket Manual - Basic",        // Nama paket
-    price: "Rp 750.000",                  // Harga
-    period: "4x pertemuan",               // Periode
-    popular: false,                        // true = tampil "Rekomendasi"
-    transmission: "manual",                // manual atau matic
-    features: [                            // Daftar fitur
+    name: "Paket Manual - Basic", // Nama paket
+    price: "Rp 750.000", // Harga
+    period: "4x pertemuan", // Periode
+    popular: false, // true = tampil "Rekomendasi"
+    transmission: "manual", // manual atau matic
+    features: [
+      // Daftar fitur
       "4x pertemuan latihan mengemudi",
       "Durasi 1,5 jam per pertemuan",
       "Instruktur berpengalaman",
       "Mobil manual berkondisi baik",
-      "Layanan antar-jemput"
-    ]
+      "Layanan antar-jemput",
+    ],
   },
   // ... paket lainnya
 ];
@@ -174,8 +181,8 @@ Hapus objek paket dari array `plans`.
 
 ```html
 <p class="...">
-  * Harga sudah termasuk bensin, mobil, dan instruktur. 
-  Hubungi kami untuk info lebih lanjut.
+  * Harga sudah termasuk bensin, mobil, dan instruktur. Hubungi kami untuk info
+  lebih lanjut.
 </p>
 ```
 
@@ -192,11 +199,12 @@ const stats = [
   { value: 500, suffix: "+", label: "Siswa Lulus" },
   { value: 10, suffix: "+", label: "Tahun Pengalaman" },
   { value: 98, suffix: "%", label: "Tingkat Kelulusan" },
-  { value: 4.9, suffix: "", label: "Rating Google" }
+  { value: 4.9, suffix: "", label: "Rating Google" },
 ];
 ```
 
 **Keterangan:**
+
 - `value`: Angka statistik
 - `suffix`: Akhiran ("+", "%", atau kosong "")
 - `label`: Label di bawah angka
@@ -221,10 +229,10 @@ const galleryImages = [
 ```javascript
 const reviews = [
   {
-    name: "Andi Pratama",           // Nama siswa
-    role: "Siswa NASYA",            // Role/keterangan
-    quote: "Belajar di NASYA ...",  // Isi testimoni
-    image: "https://..."            // URL foto profil
+    name: "Andi Pratama", // Nama siswa
+    role: "Siswa NASYA", // Role/keterangan
+    quote: "Belajar di NASYA ...", // Isi testimoni
+    image: "https://...", // URL foto profil
   },
   // ... review lainnya
 ];
@@ -254,9 +262,9 @@ Tambahkan objek baru ke array `reviews`:
 ```javascript
 const instructors = [
   {
-    name: "Instruktur Senior",                    // Nama instruktur
+    name: "Instruktur Senior", // Nama instruktur
     role: "Instruktur berpengalaman 10+ tahun...", // Deskripsi
-    image: "https://..."                          // URL foto
+    image: "https://...", // URL foto
   },
   // ... instruktur lainnya
 ];
@@ -274,7 +282,7 @@ const instructors = [
 const faqs = [
   {
     question: "Berapa biaya kursus mengemudi di NASYA?",
-    answer: "NASYA menyediakan 4 paket: Paket Manual Basic..."
+    answer: "NASYA menyediakan 4 paket: Paket Manual Basic...",
   },
   // ... FAQ lainnya
 ];
@@ -302,7 +310,7 @@ const navLinks = [
   { label: "Harga", href: "#pricing" },
   { label: "Instruktur", href: "#team" },
   { label: "Tentang", href: "#skills" },
-  { label: "Kontak", href: "#contact" }
+  { label: "Kontak", href: "#contact" },
 ];
 ```
 
@@ -310,33 +318,35 @@ const navLinks = [
 
 ```javascript
 const socialLinks = [
-  { 
-    icon: "...",           // SVG path
+  {
+    icon: "...", // SVG path
     label: "Instagram",
-    href: "#"              // Ganti dengan link Instagram Anda
+    href: "#", // Ganti dengan link Instagram Anda
   },
   // ... social media lainnya
 ];
 ```
 
 **Ganti `href: "#"` dengan link social media Anda:**
+
 - Instagram: `https://instagram.com/username_anda`
 - TikTok: `https://tiktok.com/@username_anda`
 
 ### Info Kontak (Baris 83-96)
 
 ```html
-<li>Jambi, Indonesia</li>              <!-- Alamat -->
-<li>+62 812-3456-7890</li>             <!-- Nomor telepon -->
-<li>Senin - Minggu, 08:00 - 17:00</li> <!-- Jam operasional -->
+<li>Jambi, Indonesia</li>
+<!-- Alamat -->
+<li>+62 812-3456-7890</li>
+<!-- Nomor telepon -->
+<li>Senin - Minggu, 08:00 - 17:00</li>
+<!-- Jam operasional -->
 ```
 
 ### Copyright (Baris 102-104)
 
 ```html
-<p class="...">
-  © 2026 NASYA Kursus Mengemudi. All rights reserved.
-</p>
+<p class="...">© 2026 NASYA Kursus Mengemudi. All rights reserved.</p>
 ```
 
 ---
@@ -352,6 +362,7 @@ https://images.unsplash.com/photo-ID?w=LEBAR&h=TINGGI&fit=crop
 ```
 
 Contoh:
+
 ```
 https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&h=1080&fit=crop
 ```
@@ -368,13 +379,13 @@ const heroImage = "/images/hero-banner.jpg";
 
 ### 10.3 Ukuran Gambar yang Direkomendasikan
 
-| Lokasi | Ukuran (px) | Aspect Ratio |
-|--------|-------------|--------------|
-| Hero Banner | 1920 x 1080 | 16:9 |
-| Gallery | 600 x 400 | 3:2 |
-| Foto Instruktur | 600 x 600 | 1:1 |
-| Foto Testimoni | 200 x 200 | 1:1 |
-| Avatar | 100 x 100 | 1:1 |
+| Lokasi          | Ukuran (px) | Aspect Ratio |
+| --------------- | ----------- | ------------ |
+| Hero Banner     | 1920 x 1080 | 16:9         |
+| Gallery         | 600 x 400   | 3:2          |
+| Foto Instruktur | 600 x 600   | 1:1          |
+| Foto Testimoni  | 200 x 200   | 1:1          |
+| Avatar          | 100 x 100   | 1:1          |
 
 ---
 
@@ -385,10 +396,10 @@ const heroImage = "/images/hero-banner.jpg";
 ### Title & Description (Baris 14-17)
 
 ```javascript
-const { 
-  title = 'Kursus Mengemudi NASYA Jambi - Cepat, Aman, Terpercaya',
-  description = 'Kursus mengemudi terpercaya di Jambi...',
-  ogImage = '/og-image.jpg'
+const {
+  title = "Kursus Mengemudi NASYA Jambi - Cepat, Aman, Terpercaya",
+  description = "Kursus mengemudi terpercaya di Jambi...",
+  ogImage = "/og-image.jpg",
 } = Astro.props;
 ```
 
@@ -401,7 +412,7 @@ const {
 ### Site URL (Baris 20)
 
 ```javascript
-const siteUrl = 'https://nasyajambi.com';  // Ganti dengan domain Anda
+const siteUrl = "https://nasyajambi.com"; // Ganti dengan domain Anda
 ```
 
 ---
@@ -438,11 +449,13 @@ const siteUrl = 'https://nasyajambi.com';  // Ganti dengan domain Anda
 ### Deploy ke Vercel
 
 Setelah semua perubahan selesai:
+
 ```bash
 git add .
 git commit -m "Update konten website"
 git push
 ```
+
 Vercel akan otomatis deploy perubahan Anda.
 
 ---
@@ -454,7 +467,7 @@ Vercel akan otomatis deploy perubahan Anda.
 Gunakan fitur "Find and Replace" di code editor:
 
 1. Tekan `Ctrl+Shift+H` (VS Code)
-2. Cari: `6281234567890`
+2. Cari: `628127304929`
 3. Ganti dengan: `628xxxxxxxxxx` (nomor Anda)
 4. Klik "Replace All"
 

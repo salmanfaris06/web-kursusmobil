@@ -3,11 +3,12 @@
 ## 📱 Nomor WhatsApp (GANTI DI SEMUA FILE!)
 
 ```
-Cari: 6281234567890
+Cari: 628127304929
 Ganti: [NOMOR_ANDA]
 ```
 
 File yang perlu diubah:
+
 - `Hero.astro` (baris 10)
 - `Pricing.astro` (baris 65)
 - `FAQ.astro` (baris 29)
@@ -79,6 +80,7 @@ File yang perlu diubah:
 ## 🔗 Social Media → `Footer.astro`
 
 Cari `href: "#"` dan ganti dengan:
+
 - Instagram: `https://instagram.com/username`
 - TikTok: `https://tiktok.com/@username`
 
@@ -86,12 +88,12 @@ Cari `href: "#"` dan ganti dengan:
 
 ## 🖼️ Ukuran Gambar
 
-| Lokasi | Ukuran |
-|--------|--------|
-| Hero | 1920x1080 |
-| Gallery | 600x400 |
-| Instruktur | 600x600 |
-| Avatar | 100x100 |
+| Lokasi     | Ukuran    |
+| ---------- | --------- |
+| Hero       | 1920x1080 |
+| Gallery    | 600x400   |
+| Instruktur | 600x600   |
+| Avatar     | 100x100   |
 
 ---
 

@@ -1,38 +1,44 @@
 ---
-title: 'NASYA Driving School Landing Page'
-slug: 'nasya-landing-page'
-created: '2026-01-11'
-status: 'ready-for-dev'
+title: "NASYA Driving School Landing Page"
+slug: "nasya-landing-page"
+created: "2026-01-11"
+status: "ready-for-dev"
 stepsCompleted: [1, 2, 3, 4]
-tech_stack: ['Astro 5.x', 'Tailwind CSS 4.x', 'TypeScript 5.x', 'Vercel']
+tech_stack: ["Astro 5.x", "Tailwind CSS 4.x", "TypeScript 5.x", "Vercel"]
 files_to_modify: []
 files_to_create:
-  - 'package.json'
-  - 'tsconfig.json'
-  - 'astro.config.mjs'
-  - 'tailwind.config.mjs'
-  - '.gitignore'
-  - 'src/styles/global.css'
-  - 'src/layouts/Layout.astro'
-  - 'src/pages/index.astro'
-  - 'src/components/Header.astro'
-  - 'src/components/Hero.astro'
-  - 'src/components/Features.astro'
-  - 'src/components/FeatureCard.astro'
-  - 'src/components/PackageCard.astro'
-  - 'src/components/Packages.astro'
-  - 'src/components/TestimonialCard.astro'
-  - 'src/components/Testimonials.astro'
-  - 'src/components/Location.astro'
-  - 'src/components/Footer.astro'
-  - 'src/components/WhatsAppFAB.astro'
-  - 'src/data/site.ts'
-  - 'src/data/packages.ts'
-  - 'src/data/testimonials.ts'
-  - 'src/data/features.ts'
-  - 'public/favicon.svg'
-code_patterns: ['Astro components', 'Tailwind utility-first', 'TypeScript data files', 'Static site generation']
-test_patterns: ['Visual testing', 'Lighthouse audit', 'Cross-device testing']
+  - "package.json"
+  - "tsconfig.json"
+  - "astro.config.mjs"
+  - "tailwind.config.mjs"
+  - ".gitignore"
+  - "src/styles/global.css"
+  - "src/layouts/Layout.astro"
+  - "src/pages/index.astro"
+  - "src/components/Header.astro"
+  - "src/components/Hero.astro"
+  - "src/components/Features.astro"
+  - "src/components/FeatureCard.astro"
+  - "src/components/PackageCard.astro"
+  - "src/components/Packages.astro"
+  - "src/components/TestimonialCard.astro"
+  - "src/components/Testimonials.astro"
+  - "src/components/Location.astro"
+  - "src/components/Footer.astro"
+  - "src/components/WhatsAppFAB.astro"
+  - "src/data/site.ts"
+  - "src/data/packages.ts"
+  - "src/data/testimonials.ts"
+  - "src/data/features.ts"
+  - "public/favicon.svg"
+code_patterns:
+  [
+    "Astro components",
+    "Tailwind utility-first",
+    "TypeScript data files",
+    "Static site generation",
+  ]
+test_patterns: ["Visual testing", "Lighthouse audit", "Cross-device testing"]
 ---
 
 # Tech-Spec: NASYA Driving School Landing Page
@@ -55,6 +61,7 @@ Membuat static landing page dengan Astro + Tailwind CSS yang menampilkan semua i
 ### Scope
 
 **In Scope:**
+
 - Hero section dengan headline + USP badges + primary CTA
 - Features section dengan 3 keunggulan utama (Antar-Jemput, Jaminan SIM, Instruktur Berpengalaman)
 - 4 Package cards (Manual Basic/Pro, Matic Basic/Pro) dengan harga
@@ -66,6 +73,7 @@ Membuat static landing page dengan Astro + Tailwind CSS yang menampilkan semua i
 - Deploy ke Vercel
 
 **Out of Scope:**
+
 - User login/registration
 - Payment gateway integration
 - Real-time schedule booking
@@ -82,12 +90,12 @@ Membuat static landing page dengan Astro + Tailwind CSS yang menampilkan semua i
 
 ### Tech Stack
 
-| Layer | Technology | Version |
-| ----- | ---------- | ------- |
-| Framework | Astro | ^5.0.0 |
-| Styling | Tailwind CSS | ^4.0.0 |
-| Language | TypeScript | ^5.0.0 |
-| Hosting | Vercel | - |
+| Layer     | Technology   | Version |
+| --------- | ------------ | ------- |
+| Framework | Astro        | ^5.0.0  |
+| Styling   | Tailwind CSS | ^4.0.0  |
+| Language  | TypeScript   | ^5.0.0  |
+| Hosting   | Vercel       | -       |
 
 ### Project Structure
 
@@ -113,17 +121,17 @@ nasya_kursusmobil/
 ```typescript
 // Colors
 const colors = {
-  primary: '#1E40AF',    // Blue-800 - main brand
-  secondary: '#3B82F6',  // Blue-500 - accents
-  accent: '#25D366',     // WhatsApp green
-  dark: '#1F2937',       // Gray-800 - text
-  light: '#F9FAFB',      // Gray-50 - backgrounds
-}
+  primary: "#1E40AF", // Blue-800 - main brand
+  secondary: "#3B82F6", // Blue-500 - accents
+  accent: "#25D366", // WhatsApp green
+  dark: "#1F2937", // Gray-800 - text
+  light: "#F9FAFB", // Gray-50 - backgrounds
+};
 
 // Typography
 const fonts = {
-  sans: ['Inter', 'system-ui', 'sans-serif']
-}
+  sans: ["Inter", "system-ui", "sans-serif"],
+};
 ```
 
 ---
@@ -133,6 +141,7 @@ const fonts = {
 ### Phase 1: Project Setup (Tasks 1-5)
 
 - [ ] **Task 1: Initialize Astro Project**
+
   - File: `package.json`
   - Action: Run `npm create astro@latest` or create manually with dependencies
   - Dependencies:
@@ -159,6 +168,7 @@ const fonts = {
     ```
 
 - [ ] **Task 2: Create TypeScript Config**
+
   - File: `tsconfig.json`
   - Action: Configure TypeScript for Astro
   - Content:
@@ -178,42 +188,45 @@ const fonts = {
     ```
 
 - [ ] **Task 3: Configure Astro**
+
   - File: `astro.config.mjs`
   - Action: Setup Astro with Tailwind, Sitemap, and Vercel adapter
   - Content:
+
     ```javascript
-    import { defineConfig } from 'astro/config';
-    import tailwind from '@astrojs/tailwind';
-    import sitemap from '@astrojs/sitemap';
-    import vercel from '@astrojs/vercel';
+    import { defineConfig } from "astro/config";
+    import tailwind from "@astrojs/tailwind";
+    import sitemap from "@astrojs/sitemap";
+    import vercel from "@astrojs/vercel";
 
     export default defineConfig({
-      output: 'static',
+      output: "static",
       adapter: vercel(),
       integrations: [tailwind(), sitemap()],
-      site: 'https://nasya-driving.vercel.app',
+      site: "https://nasya-driving.vercel.app",
     });
     ```
 
 - [ ] **Task 4: Configure Tailwind**
+
   - File: `tailwind.config.mjs`
   - Action: Setup Tailwind with custom colors and fonts
   - Content:
     ```javascript
     /** @type {import('tailwindcss').Config} */
     export default {
-      content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+      content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
       theme: {
         extend: {
           colors: {
-            primary: '#1E40AF',
-            secondary: '#3B82F6',
-            accent: '#25D366',
-            dark: '#1F2937',
-            light: '#F9FAFB',
+            primary: "#1E40AF",
+            secondary: "#3B82F6",
+            accent: "#25D366",
+            dark: "#1F2937",
+            light: "#F9FAFB",
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            sans: ["Inter", "system-ui", "sans-serif"],
           },
         },
       },
@@ -225,40 +238,45 @@ const fonts = {
   - File: `src/styles/global.css`
   - Action: Import Tailwind directives (v4 syntax)
   - Content:
+
     ```css
     @import "tailwindcss";
-    
+
     /* Base styles */
     html {
       scroll-behavior: smooth;
     }
     ```
+
   - Notes: Tailwind v4 uses @import syntax. Custom utilities defined in tailwind.config.mjs.
 
 ### Phase 2: Data Layer (Tasks 6-9)
 
 - [ ] **Task 6: Create Site Configuration**
+
   - File: `src/data/site.ts`
   - Action: Define site-wide config with WhatsApp number and nav links
   - Content:
+
     ```typescript
     export const siteConfig = {
-      name: 'NASYA',
-      tagline: 'Kursus Mengemudi Terpercaya di Jambi',
-      phone: '6281234567890', // TODO: Replace with real number
-      whatsappMessage: 'Halo, saya ingin mendaftar kursus mengemudi NASYA',
-      address: 'Jl. Contoh No. 123, Jambi', // TODO: Replace with real address
-      mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082988!2d103.5610091!3d-1.6101229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2588e4f1ad0c1b%3A0x6e9aaab89ef77e0!2sJambi%2C%20Kota%20Jambi%2C%20Jambi!5e0!3m2!1sen!2sid!4v1234567890', // TODO: Replace with exact coordinates
+      name: "NASYA",
+      tagline: "Kursus Mengemudi Terpercaya di Jambi",
+      phone: "628127304929", // TODO: Replace with real number
+      whatsappMessage: "Halo, saya ingin mendaftar kursus mengemudi NASYA",
+      address: "Jl. Contoh No. 123, Jambi", // TODO: Replace with real address
+      mapEmbedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.75772082988!2d103.5610091!3d-1.6101229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2588e4f1ad0c1b%3A0x6e9aaab89ef77e0!2sJambi%2C%20Kota%20Jambi%2C%20Jambi!5e0!3m2!1sen!2sid!4v1234567890", // TODO: Replace with exact coordinates
       social: {
-        instagram: '', // TODO: Add real Instagram URL
-        tiktok: '', // TODO: Add real TikTok URL
+        instagram: "", // TODO: Add real Instagram URL
+        tiktok: "", // TODO: Add real TikTok URL
       },
       navLinks: [
-        { label: 'Keunggulan', href: '#features' },
-        { label: 'Paket', href: '#packages' },
-        { label: 'Testimoni', href: '#testimonials' },
-        { label: 'Lokasi', href: '#location' },
-      ]
+        { label: "Keunggulan", href: "#features" },
+        { label: "Paket", href: "#packages" },
+        { label: "Testimoni", href: "#testimonials" },
+        { label: "Lokasi", href: "#location" },
+      ],
     };
 
     export const getWhatsAppUrl = (message?: string) => {
@@ -268,15 +286,17 @@ const fonts = {
     ```
 
 - [ ] **Task 7: Create Package Data**
+
   - File: `src/data/packages.ts`
   - Action: Define 4 packages with pricing
   - Content:
+
     ```typescript
     export interface Package {
       id: string;
       name: string;
-      type: 'manual' | 'matic';
-      tier: 'basic' | 'pro';
+      type: "manual" | "matic";
+      tier: "basic" | "pro";
       meetings: number;
       price: number;
       priceFormatted: string;
@@ -286,68 +306,68 @@ const fonts = {
 
     export const packages: Package[] = [
       {
-        id: 'manual-basic',
-        name: 'Paket Manual - Basic',
-        type: 'manual',
-        tier: 'basic',
+        id: "manual-basic",
+        name: "Paket Manual - Basic",
+        type: "manual",
+        tier: "basic",
         meetings: 4,
         price: 500000,
-        priceFormatted: 'Rp 500.000',
+        priceFormatted: "Rp 500.000",
         features: [
-          '4x Pertemuan (@ 90 menit)',
-          'Mobil Manual Terawat',
-          'Instruktur Berpengalaman',
-          'Antar-Jemput Gratis',
+          "4x Pertemuan (@ 90 menit)",
+          "Mobil Manual Terawat",
+          "Instruktur Berpengalaman",
+          "Antar-Jemput Gratis",
         ],
       },
       {
-        id: 'manual-pro',
-        name: 'Paket Manual - Pro',
-        type: 'manual',
-        tier: 'pro',
+        id: "manual-pro",
+        name: "Paket Manual - Pro",
+        type: "manual",
+        tier: "pro",
         meetings: 8,
         price: 900000,
-        priceFormatted: 'Rp 900.000',
+        priceFormatted: "Rp 900.000",
         features: [
-          '8x Pertemuan (@ 90 menit)',
-          'Mobil Manual Terawat',
-          'Instruktur Berpengalaman',
-          'Antar-Jemput Gratis',
-          'Jaminan Lulus SIM',
-          'Simulasi Ujian Praktek',
+          "8x Pertemuan (@ 90 menit)",
+          "Mobil Manual Terawat",
+          "Instruktur Berpengalaman",
+          "Antar-Jemput Gratis",
+          "Jaminan Lulus SIM",
+          "Simulasi Ujian Praktek",
         ],
         recommended: true,
       },
       {
-        id: 'matic-basic',
-        name: 'Paket Matic - Basic',
-        type: 'matic',
-        tier: 'basic',
+        id: "matic-basic",
+        name: "Paket Matic - Basic",
+        type: "matic",
+        tier: "basic",
         meetings: 4,
         price: 600000,
-        priceFormatted: 'Rp 600.000',
+        priceFormatted: "Rp 600.000",
         features: [
-          '4x Pertemuan (@ 90 menit)',
-          'Mobil Matic Terawat',
-          'Instruktur Berpengalaman',
-          'Antar-Jemput Gratis',
+          "4x Pertemuan (@ 90 menit)",
+          "Mobil Matic Terawat",
+          "Instruktur Berpengalaman",
+          "Antar-Jemput Gratis",
         ],
       },
       {
-        id: 'matic-pro',
-        name: 'Paket Matic - Pro',
-        type: 'matic',
-        tier: 'pro',
+        id: "matic-pro",
+        name: "Paket Matic - Pro",
+        type: "matic",
+        tier: "pro",
         meetings: 8,
         price: 1100000,
-        priceFormatted: 'Rp 1.100.000',
+        priceFormatted: "Rp 1.100.000",
         features: [
-          '8x Pertemuan (@ 90 menit)',
-          'Mobil Matic Terawat',
-          'Instruktur Berpengalaman',
-          'Antar-Jemput Gratis',
-          'Jaminan Lulus SIM',
-          'Simulasi Ujian Praktek',
+          "8x Pertemuan (@ 90 menit)",
+          "Mobil Matic Terawat",
+          "Instruktur Berpengalaman",
+          "Antar-Jemput Gratis",
+          "Jaminan Lulus SIM",
+          "Simulasi Ujian Praktek",
         ],
         recommended: true,
       },
@@ -355,9 +375,11 @@ const fonts = {
     ```
 
 - [ ] **Task 8: Create Testimonial Data**
+
   - File: `src/data/testimonials.ts`
   - Action: Define 4 dummy testimonials
   - Content:
+
     ```typescript
     export interface Testimonial {
       id: string;
@@ -369,62 +391,71 @@ const fonts = {
 
     export const testimonials: Testimonial[] = [
       {
-        id: '1',
-        name: 'Andi Pratama',
-        role: 'Mahasiswa',
-        quote: 'Instrukturnya sabar banget! Saya yang awalnya takut nyetir, sekarang udah lancar dan lulus SIM A.',
+        id: "1",
+        name: "Andi Pratama",
+        role: "Mahasiswa",
+        quote:
+          "Instrukturnya sabar banget! Saya yang awalnya takut nyetir, sekarang udah lancar dan lulus SIM A.",
       },
       {
-        id: '2',
-        name: 'Siti Rahayu',
-        role: 'Ibu Rumah Tangga',
-        quote: 'Pelayanan antar-jemput sangat membantu. Tidak perlu repot ke tempat kursus, instruktur yang datang.',
+        id: "2",
+        name: "Siti Rahayu",
+        role: "Ibu Rumah Tangga",
+        quote:
+          "Pelayanan antar-jemput sangat membantu. Tidak perlu repot ke tempat kursus, instruktur yang datang.",
       },
       {
-        id: '3',
-        name: 'Budi Santoso',
-        role: 'Karyawan Swasta',
-        quote: 'Recommended! Cuma 8x pertemuan langsung bisa. Harga juga worth it dengan fasilitas yang didapat.',
+        id: "3",
+        name: "Budi Santoso",
+        role: "Karyawan Swasta",
+        quote:
+          "Recommended! Cuma 8x pertemuan langsung bisa. Harga juga worth it dengan fasilitas yang didapat.",
       },
       {
-        id: '4',
-        name: 'Dewi Anggraini',
-        role: 'Fresh Graduate',
-        quote: 'NASYA beneran jamin lulus SIM. Instrukturnya kasih tips & trik yang berguna banget pas ujian.',
+        id: "4",
+        name: "Dewi Anggraini",
+        role: "Fresh Graduate",
+        quote:
+          "NASYA beneran jamin lulus SIM. Instrukturnya kasih tips & trik yang berguna banget pas ujian.",
       },
     ];
     ```
 
 - [ ] **Task 9: Create Features Data**
+
   - File: `src/data/features.ts`
   - Action: Define 3 main features/keunggulan
   - Content:
+
     ```typescript
     export interface Feature {
       id: string;
       title: string;
       description: string;
-      icon: 'car' | 'certificate' | 'users';
+      icon: "car" | "certificate" | "users";
     }
 
     export const features: Feature[] = [
       {
-        id: 'pickup',
-        title: 'Antar-Jemput Gratis',
-        description: 'Tidak perlu repot ke tempat kursus. Instruktur kami yang akan menjemput Anda di lokasi yang disepakati.',
-        icon: 'car',
+        id: "pickup",
+        title: "Antar-Jemput Gratis",
+        description:
+          "Tidak perlu repot ke tempat kursus. Instruktur kami yang akan menjemput Anda di lokasi yang disepakati.",
+        icon: "car",
       },
       {
-        id: 'guarantee',
-        title: 'Jaminan Lulus SIM',
-        description: 'Kami berkomitmen membimbing Anda hingga berhasil mendapatkan SIM. Garansi mengulang gratis jika belum lulus.',
-        icon: 'certificate',
+        id: "guarantee",
+        title: "Jaminan Lulus SIM",
+        description:
+          "Kami berkomitmen membimbing Anda hingga berhasil mendapatkan SIM. Garansi mengulang gratis jika belum lulus.",
+        icon: "certificate",
       },
       {
-        id: 'experience',
-        title: 'Instruktur Berpengalaman 10+ Tahun',
-        description: 'Tim instruktur profesional dengan pengalaman lebih dari 10 tahun dalam mengajar mengemudi dengan aman.',
-        icon: 'users',
+        id: "experience",
+        title: "Instruktur Berpengalaman 10+ Tahun",
+        description:
+          "Tim instruktur profesional dengan pengalaman lebih dari 10 tahun dalam mengajar mengemudi dengan aman.",
+        icon: "users",
       },
     ];
     ```
@@ -432,9 +463,11 @@ const fonts = {
 ### Phase 3: Layout & Base Components (Tasks 10-12)
 
 - [ ] **Task 10: Create Base Layout**
+
   - File: `src/layouts/Layout.astro`
   - Action: Create base HTML layout with SEO meta tags
   - Content:
+
     ```astro
     ---
     import '../styles/global.css';
@@ -445,7 +478,7 @@ const fonts = {
       description?: string;
     }
 
-    const { 
+    const {
       title = `${siteConfig.name} - Kursus Mengemudi Jambi`,
       description = 'Kursus mengemudi terpercaya di Jambi. Instruktur berpengalaman 10+ tahun, antar-jemput gratis, jaminan lulus SIM. Daftar sekarang!'
     } = Astro.props;
@@ -458,17 +491,17 @@ const fonts = {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={description} />
         <meta name="keywords" content="kursus mengemudi jambi, les mobil jambi, belajar nyetir jambi, SIM jambi" />
-        
+
         <!-- Open Graph -->
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
-        
+
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        
+
         <title>{title}</title>
       </head>
       <body class="min-h-screen flex flex-col">
@@ -478,9 +511,11 @@ const fonts = {
     ```
 
 - [ ] **Task 11: Create WhatsApp FAB Component**
+
   - File: `src/components/WhatsAppFAB.astro`
   - Action: Create floating WhatsApp button
   - Content:
+
     ```astro
     ---
     import { getWhatsAppUrl } from '../data/site';
@@ -501,9 +536,11 @@ const fonts = {
     ```
 
 - [ ] **Task 12: Create Header/Navigation Component**
+
   - File: `src/components/Header.astro`
   - Action: Create simple header with logo and anchor nav links
   - Content:
+
     ```astro
     ---
     import { siteConfig, getWhatsAppUrl } from '../data/site';
@@ -515,7 +552,7 @@ const fonts = {
         <a href="/" class="text-2xl font-bold text-primary">
           {siteConfig.name}
         </a>
-        
+
         <!-- Desktop Nav -->
         <div class="hidden md:flex items-center gap-6">
           {siteConfig.navLinks.map((link) => (
@@ -568,9 +605,11 @@ const fonts = {
 ### Phase 4: Section Components (Tasks 13-21)
 
 - [ ] **Task 13: Create Hero Component**
+
   - File: `src/components/Hero.astro`
   - Action: Create hero section with headline and primary CTA
   - Content:
+
     ```astro
     ---
     import { siteConfig, getWhatsAppUrl } from '../data/site';
@@ -583,12 +622,12 @@ const fonts = {
           Kursus Mengemudi<br />
           <span class="text-accent">Terpercaya</span> di Jambi
         </h1>
-        
+
         <!-- Subheadline -->
         <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
           {siteConfig.tagline}. Dapatkan SIM dengan mudah bersama instruktur berpengalaman 10+ tahun.
         </p>
-        
+
         <!-- CTA Button -->
         <a
           href={getWhatsAppUrl()}
@@ -601,7 +640,7 @@ const fonts = {
           </svg>
           Daftar NASYA Sekarang
         </a>
-        
+
         <!-- Trust badges -->
         <div class="mt-12 flex flex-wrap justify-center gap-4 text-sm">
           <span class="bg-white/20 px-4 py-2 rounded-full">✓ Antar-Jemput Gratis</span>
@@ -613,9 +652,11 @@ const fonts = {
     ```
 
 - [ ] **Task 14: Create Feature Card Component**
+
   - File: `src/components/FeatureCard.astro`
   - Action: Create reusable feature card with icon, title, and description
   - Content:
+
     ```astro
     ---
     import type { Feature } from '../data/features';
@@ -645,9 +686,11 @@ const fonts = {
     ```
 
 - [ ] **Task 15: Create Features Section**
+
   - File: `src/components/Features.astro`
   - Action: Create 3-column grid showcasing main USPs
   - Content:
+
     ```astro
     ---
     import FeatureCard from './FeatureCard.astro';
@@ -662,7 +705,7 @@ const fonts = {
         <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
           Kami menyediakan layanan kursus mengemudi terbaik dengan berbagai keunggulan untuk kenyamanan Anda.
         </p>
-        
+
         <div class="grid md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <FeatureCard feature={feature} />
@@ -673,19 +716,23 @@ const fonts = {
     ```
 
 - [ ] **Task 16: Create Package Card Component**
+
   - File: `src/components/PackageCard.astro`
   - Action: Create reusable package card with props
   - Notes: Accept Package interface, show "Recommended" badge for pro tiers
 
 - [ ] **Task 17: Create Packages Section**
+
   - File: `src/components/Packages.astro`
   - Action: Create 4-card grid using PackageCard
   - Notes: 2x2 grid on desktop, 1 column on mobile. Include section id="packages"
 
 - [ ] **Task 18: Create Testimonial Card Component**
+
   - File: `src/components/TestimonialCard.astro`
   - Action: Create reusable testimonial card
   - Content:
+
     ```astro
     ---
     import type { Testimonial } from '../data/testimonials';
@@ -716,11 +763,13 @@ const fonts = {
     ```
 
 - [ ] **Task 19: Create Testimonials Section**
+
   - File: `src/components/Testimonials.astro`
   - Action: Create testimonial cards grid using TestimonialCard
   - Notes: Include section id="testimonials", 2 columns on tablet, 4 on desktop
 
 - [ ] **Task 20: Create Location Section**
+
   - File: `src/components/Location.astro`
   - Action: Create Google Maps embed + contact info
   - Notes: Responsive iframe with loading skeleton, section id="location", show WhatsApp CTA
@@ -733,9 +782,11 @@ const fonts = {
 ### Phase 5: Main Page & Assets (Tasks 22-24)
 
 - [ ] **Task 22: Create Main Landing Page**
+
   - File: `src/pages/index.astro`
   - Action: Assemble all components in correct order
   - Content:
+
     ```astro
     ---
     import Layout from '../layouts/Layout.astro';
@@ -764,6 +815,7 @@ const fonts = {
     ```
 
 - [ ] **Task 23: Create Favicon**
+
   - File: `public/favicon.svg`
   - Action: Create simple SVG favicon with "N" letter
   - Notes: Blue background, white text
@@ -776,32 +828,34 @@ const fonts = {
 ### Phase 6: Deployment (Tasks 25-26)
 
 - [ ] **Task 25: Create .gitignore**
+
   - File: `.gitignore`
   - Action: Create .gitignore with standard Astro ignores
   - Content:
+
     ```
     # Dependencies
     node_modules/
-    
+
     # Build output
     dist/
     .vercel/
-    
+
     # Environment
     .env
     .env.local
     .env.production
-    
+
     # IDE
     .vscode/
     .idea/
     *.swp
     *.swo
-    
+
     # OS
     .DS_Store
     Thumbs.db
-    
+
     # Logs
     *.log
     npm-debug.log*
@@ -860,23 +914,23 @@ const fonts = {
 
 ### Dependencies
 
-| Package | Version | Purpose |
-| ------- | ------- | ------- |
-| astro | ^5.0.0 | Core framework |
-| @astrojs/tailwind | ^6.0.0 | Tailwind integration |
-| @astrojs/vercel | ^8.0.0 | Vercel deployment adapter |
-| tailwindcss | ^4.0.0 | Utility-first CSS |
-| typescript | ^5.0.0 | Type safety |
+| Package           | Version | Purpose                   |
+| ----------------- | ------- | ------------------------- |
+| astro             | ^5.0.0  | Core framework            |
+| @astrojs/tailwind | ^6.0.0  | Tailwind integration      |
+| @astrojs/vercel   | ^8.0.0  | Vercel deployment adapter |
+| tailwindcss       | ^4.0.0  | Utility-first CSS         |
+| typescript        | ^5.0.0  | Type safety               |
 
 ### Testing Strategy
 
-| Type | Method | Coverage |
-| ---- | ------ | -------- |
-| Visual | Manual browser testing | All sections, 3 breakpoints |
-| Functional | Click testing | All CTAs link to correct WhatsApp URL |
-| Performance | Lighthouse audit | Target 90+ all categories |
-| Cross-browser | BrowserStack or manual | Chrome, Safari, Firefox |
-| Mobile | Real device testing | iOS Safari, Android Chrome |
+| Type          | Method                 | Coverage                              |
+| ------------- | ---------------------- | ------------------------------------- |
+| Visual        | Manual browser testing | All sections, 3 breakpoints           |
+| Functional    | Click testing          | All CTAs link to correct WhatsApp URL |
+| Performance   | Lighthouse audit       | Target 90+ all categories             |
+| Cross-browser | BrowserStack or manual | Chrome, Safari, Firefox               |
+| Mobile        | Real device testing    | iOS Safari, Android Chrome            |
 
 ### Risk Items
 
@@ -898,13 +952,13 @@ const fonts = {
 
 ### Content Placeholders (To Be Replaced)
 
-| Item | Current Placeholder | Action Needed |
-| ---- | ------------------- | ------------- |
-| WhatsApp Number | 6281234567890 | Get real number from owner |
-| Package Prices | Rp 500K - 1.1M | Confirm exact prices |
-| Testimonials | 4 dummy reviews | Get real testimonials |
-| Photos | Gradient placeholders | Get car/instructor photos |
-| Map Location | Generic Jambi | Get exact coordinates |
+| Item            | Current Placeholder   | Action Needed              |
+| --------------- | --------------------- | -------------------------- |
+| WhatsApp Number | 628127304929          | Get real number from owner |
+| Package Prices  | Rp 500K - 1.1M        | Confirm exact prices       |
+| Testimonials    | 4 dummy reviews       | Get real testimonials      |
+| Photos          | Gradient placeholders | Get car/instructor photos  |
+| Map Location    | Generic Jambi         | Get exact coordinates      |
 
 ### Development Commands
 
