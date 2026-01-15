@@ -337,7 +337,7 @@ const socialLinks = [
 ```html
 <li>Jambi, Indonesia</li>
 <!-- Alamat -->
-<li>+62 812-3456-7890</li>
+<li>+62 812-7304-929</li>
 <!-- Nomor telepon -->
 <li>Senin - Minggu, 08:00 - 17:00</li>
 <!-- Jam operasional -->
